@@ -1,6 +1,9 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +22,11 @@ Route::get('/welcome', function () {
 
 
 
-Route::get('/', [\App\Http\Controllers\LandingController::class,'index'])->name('index');
+
+Auth::routes();
+
+
+Route::get('/', [\App\Http\Controllers\LandingController::class,'index'])->name('index')->middleware('auth');
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

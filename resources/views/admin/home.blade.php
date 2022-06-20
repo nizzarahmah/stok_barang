@@ -9,6 +9,30 @@ Beranda
 
 
 
+@section('style')
+
+<style>
+    /* #beranda{
+        background-color:'#fff';
+        
+    } */
+
+    #beranda .nav-link {
+        background-color:'#fff';
+        color:'#f7f7f7';
+
+    }
+
+
+</style>
+
+    
+@endsection
+
+
+
+
+
 
 
 @section('content')
@@ -24,7 +48,7 @@ Beranda
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Beranda</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        class="fas fa-download fa-sm text-white-50"></i> Ambil Data</a>
             </div>
 
             <!-- Content Row -->

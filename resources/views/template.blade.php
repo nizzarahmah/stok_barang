@@ -22,6 +22,8 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('bootstrap/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    @yield('style')
+
 </head>
 
 <body id="page-top">
@@ -45,7 +47,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item" id = "beranda">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Beranda</span></a>
@@ -57,7 +59,7 @@
 
 
                  <!-- Nav Item - Pages Collapse Menu -->
-                 <li class="nav-item">
+                 <li class="nav-item" id = "datamaster">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDataMaster"
                         aria-expanded="true" aria-controls="collapseDataMaster">
                         <i class="fas fa-fw fa-list"></i>
@@ -76,7 +78,7 @@
 
                 
                  <!-- Nav Item - Pages Collapse Menu -->
-                 <li class="nav-item">
+                 <li class="nav-item" id = "transaksi">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaksi"
                         aria-expanded="true" aria-controls="collapseTransaksi">
                         <i class="fas fa-fw fa-th"></i>
@@ -95,7 +97,7 @@
 
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                 <li class="nav-item">
+                 <li class="nav-item" id = "laporan">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan"
                         aria-expanded="true" aria-controls="collapseLaporan">
                         <i class="fas fa-fw fa-th"></i>
@@ -115,7 +117,7 @@
 
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                 <li class="nav-item">
+                 <li class="nav-item" id = "kelola_pengguna">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
                         aria-expanded="true" aria-controls="collapseUser">
                         <i class="fas fa-fw fa-user-circle"></i>
@@ -134,9 +136,17 @@
 
                             <!-- Nav Item - Logout -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Log Out</span></a>
+
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
             </li>
 
 
@@ -329,7 +339,10 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-white-600 small">Takato Matsuda</span>
+
+
+                                <span class="mr-2 d-none d-lg-inline text-white-600 small">{{Auth::user()->name}}</span>
+                                
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
