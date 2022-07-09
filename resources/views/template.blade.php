@@ -87,8 +87,8 @@
                     <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                            <a class="collapse-item" href="buttons.html">Barang Masuk</a>
-                            <a class="collapse-item" href="cards.html">Barang Keluar</a>
+                            <a class="collapse-item" href="{{url('/barang_masuk')}}">Barang Masuk</a>
+                            <a class="collapse-item" href="{{url('/barang_keluar')}}">Barang Keluar</a>
                         </div>
                     </div>
                 </li>
@@ -503,6 +503,219 @@
 
 
 
+
+
+
+
+
+
+
+
+{{-- Modal Tambah Supplier --}}
+
+<!-- Modal -->
+
+<form action="{{route('data_supplier.store')}}" method = "POST">
+    @csrf
+    
+    <div class="modal fade" id="modaltambahSupplier" tabindex="-1" role="dialog" aria-labelledby="modaltambahSupplierLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modaltambahSupplierLabel">Tambah Data Barang</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+           
+    
+    
+                <div class="form-group">
+                    <label for="nama_supplier">Nama Supplier</label>
+                    <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+                </div>
+    
+    
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
+                </div>
+    
+    
+                
+                <div class="form-group">
+                    <label for="tanggal_masuk">Tanggal Masuk</label>
+                    <input type="date" class="form-control" name = "tanggal_masuk" placeholder="Tanggal Masuk">
+                </div>
+    
+                <div class="form-group">
+                    <label for="jumlah">Jumlah</label>
+                    <input type="number" class="form-control" name = "jumlah" placeholder="Jumlah">
+                </div>
+    
+    
+    
+    
+    
+    
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    </form>
+
+
+
+
+
+
+
+
+    
+
+
+{{-- Modal Tambah Barang Masuk --}}
+
+<!-- Modal -->
+
+<form action="{{route('barang_masuk.store')}}" method = "POST">
+    @csrf
+    
+    <div class="modal fade" id="modaltambahBarangMasuk" tabindex="-1" role="dialog" aria-labelledby="modaltambahBarangMasukLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modaltambahBarangMasukLabel">Tambah Data Barang Masuk</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+           
+    
+    
+                <div class="form-group">
+                    <label for="nama_supplier">Nama Supplier</label>
+                    <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+                </div>
+    
+    
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
+                </div>
+    
+    
+                
+                <div class="form-group">
+                    <label for="tanggal_masuk">Tanggal Masuk</label>
+                    <input type="date" class="form-control" name = "tanggal_masuk" placeholder="Tanggal Masuk">
+                </div>
+    
+                <div class="form-group">
+                    <label for="jumlah_stock">Jumlah Stok</label>
+                    <input type="number" class="form-control" name = "jumlah_stock" placeholder="Jumlah Stok">
+                </div>
+    
+    
+    
+    
+    
+    
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    </form>
+
+
+
+
+    
+
+
+
+
+    
+
+{{-- Modal Tambah Barang Masuk --}}
+
+<!-- Modal -->
+
+<form action="{{route('barang_keluar.store')}}" method = "POST">
+    @csrf
+    
+    <div class="modal fade" id="modaltambahBarangKeluar" tabindex="-1" role="dialog" aria-labelledby="daltambahBarangKeluarLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="daltambahBarangKeluarLabel">Tambah Data Barang Keluar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+           
+    
+    
+                <div class="form-group">
+                    <label for="nama_supplier">Nama Supplier</label>
+                    <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+                </div>
+    
+    
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
+                </div>
+    
+    
+                
+                <div class="form-group">
+                    <label for="tanggal_keluar">Tanggal Keluar</label>
+                    <input type="date" class="form-control" name = "tanggal_keluar" placeholder="Tanggal Keluar">
+                </div>
+    
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Stok</label>
+                    <input type="number" class="form-control" name = "jumlah" placeholder="Jumlah Stok">
+                </div>
+    
+    
+    
+    
+    
+    
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    </form>
 
 
 

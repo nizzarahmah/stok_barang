@@ -51,7 +51,6 @@ class SupplierController extends Controller
 
         
         $supplier->jumlah = $request['jumlah'];
-
         $supplier->save();
 
         return redirect('/data_supplier')->with('sukses_tambah_supplier','Supplier Telah Ditambahkan');
@@ -77,9 +76,11 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit(Supplier $supplier, $id)
     {
         //
+        $supplier = Supplier::findOrFail($id);
+        return view('');
     }
 
     /**
@@ -89,9 +90,20 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request, Supplier $supplier, $id)
     {
         //
+
+        Supplier::where('id', $id)->update([
+
+            'nama_supplier'=>$request['nama_supplier'],
+            'tanggal_masuk'=>$request['tanggal_masuk'],
+            'nama_barang'=>$request['nama_barang'],
+            'jumlah'=>$request['jumlah'],
+            
+        ]);
+
+        return redirect('/data_supplier/' . $id)->with('sukses_update_supplier', ' Supplier Telah Diupdate');
     }
 
     /**
@@ -100,8 +112,15 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy(Supplier $supplier, $id)
     {
         //
+
+        $supplier = Supplier::findOrFail($id);
+
+        $supplier->delete();
+
+        return redirect('data_supplier')->with('sukses_hapus_supplier', 'Supplier Telah Dihapus');
+
     }
 }

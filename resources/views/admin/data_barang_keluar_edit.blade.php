@@ -16,15 +16,10 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Tabel Data Barang Keluar</h1>
-    
-    
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahBarangKeluar"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Barang Keluar</a>
-        </div>
-
+        <h1 class="h3 mb-2 text-gray-800">Tabel Data Barang Keluar</h1>
+        {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank"
+                href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -40,7 +35,6 @@
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Keluar</th>
                                 <th>Jumlah</th>
-                                <th>Aksi</th>
 
 
                             </tr>
@@ -51,26 +45,23 @@
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Keluar</th>
                                 <th>Jumlah</th>
-                                <th>Aksi</th>
                         
                             </tr>
                         </tfoot>
                         <tbody>
-                            
-                                @foreach ($barang_keluar as $item_keluar)
-                                <tr>
-                                    <td>{{$item_keluar->nama_barang}}</td>
-                                    <td>{{$item_keluar->nama_supplier}}</td>
-                                    <td>{{$item_keluar->tanggal_keluar}}</td>
-                                    <td>{{$item_keluar->jumlah}}</td>
-                                    <td> 
-                                        <a href="{{route('barang_keluar.edit', $item_keluar->id)}}" class="btn btn-success">Edit</a>
-                                        <br><br>
-                                        <button class = "btn btn-danger">Hapus</button>
-                                    </td>
-                                </tr>
-                                @endforeach
-    
+
+                            @foreach ($barang_keluar as $item_keluar)
+                            <tr>
+                                <td>{{$item_keluar->nama_barang}}</td>
+                                <td>{{$item_keluar->nama_supplier}}</td>
+                                <td>{{$item_keluar->tanggal_keluar}}</td>
+                                <td>{{$item_keluar->jumlah}}</td>
+                            </tr>
+                            @endforeach
+
+                     
+           
+                    
                         </tbody>
                     </table>
                 </div>

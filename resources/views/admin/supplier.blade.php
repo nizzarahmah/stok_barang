@@ -15,10 +15,14 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Tabel Data Supplier</h1>
-        {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the <a target="_blank"
-                href="https://datatables.net">official DataTables documentation</a>.</p> --}}
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Tabel Data Supplier</h1>
+    
+    
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahSupplier"><i
+                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Supplier</a>
+        </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -35,6 +39,7 @@
                                 <th>Tanggal Masuk</th>
                                 <th>Nama Barang</th>
                                 <th>Jumlah</th>
+                                <th>Aksi</th>
 
 
                             </tr>
@@ -46,6 +51,7 @@
                                 <th>Tanggal Masuk</th>
                                 <th>Nama Barang</th>
                                 <th>Jumlah</th>
+                                <th>Aksi</th>
                         
                             </tr>
                         </tfoot>
@@ -56,8 +62,13 @@
                                 <td>{{$item_supplier->id}}</td>
                                 <td>{{$item_supplier->nama_supplier}}</td>
                                 <td>{{$item_supplier->tanggal_masuk}}</td>
+                                <td>{{$item_supplier->nama_barang}}</td>
                                 <td>{{$item_supplier->jumlah}}</td>
-                                <td>Edinburgh</td>
+                                <td>
+                                    <a href="{{route('data_supplier.edit', $item_supplier->id)}}" class = "btn btn-success">Edit</a>
+                                    <br><br>
+                                    <button class = "btn btn-danger">Hapus</button>
+                                </td>
                      
                             </tr>
                             @endforeach
