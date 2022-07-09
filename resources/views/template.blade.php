@@ -437,6 +437,17 @@
 
 
 
+    <?php 
+    
+    $data_barangs = DB::table('data_barangs')->get();
+    $data_suppliers = DB::table('suppliers')->get();
+
+    
+    ?>
+
+
+
+
 
 
     {{-- Modal Tambah Barang --}}
@@ -474,7 +485,15 @@
             
             <div class="form-group">
                 <label for="nama_supplier">Nama Supplier</label>
-                <input type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+                {{-- <input type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier"> --}}
+            
+                <select name="nama_supplier" id="nama_supplier" class = "form-control">
+                    @foreach ($data_suppliers as $supplier)
+                    <option value="{{$supplier->nama_supplier}}">{{$supplier->nama_supplier}}</option>
+                    @endforeach
+            
+                </select>
+            
             </div>
 
             <div class="form-group">
@@ -537,10 +556,10 @@
                 </div>
     
     
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
                     <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
-                </div>
+                </div> --}}
     
     
                 
@@ -549,10 +568,10 @@
                     <input type="date" class="form-control" name = "tanggal_masuk" placeholder="Tanggal Masuk">
                 </div>
     
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="jumlah">Jumlah</label>
                     <input type="number" class="form-control" name = "jumlah" placeholder="Jumlah">
-                </div>
+                </div> --}}
     
     
     
@@ -572,7 +591,6 @@
     
     
     </form>
-
 
 
 
@@ -605,13 +623,32 @@
     
                 <div class="form-group">
                     <label for="nama_supplier">Nama Supplier</label>
-                    <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+                    
+                    <select name="nama_supplier" id="nama_supplier" class = "form-control">
+                        @foreach ($data_suppliers as $supplier)
+                        <option value="{{$supplier->nama_supplier}}">{{$supplier->nama_supplier}}</option>
+                        @endforeach
+                
+                    </select>
+
+                    {{-- <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier"> --}}
                 </div>
     
     
                 <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
+
+                    <select name="nama_barang" id="nama_barang" class="form-control">
+                    @foreach ($data_barangs as $barangs)
+                    
+                        <option value="{{$barangs->nama_barang}}">{{$barangs->nama_barang}}</option>
+             
+                      
+
+                    @endforeach
+                    </select>
+
+                    {{-- <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang"> --}}
                 </div>
     
     
@@ -677,13 +714,31 @@
     
                 <div class="form-group">
                     <label for="nama_supplier">Nama Supplier</label>
-                    <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+                    {{-- <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier"> --}}
+                
+                    <select name="nama_supplier" id="nama_supplier" class = "form-control">
+                        @foreach ($data_suppliers as $supplier)
+                        <option value="{{$supplier->nama_supplier}}">{{$supplier->nama_supplier}}</option>
+                        @endforeach
+                
+                    </select>
+                
                 </div>
     
     
                 <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
+                    {{-- <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang"> --}}
+                    <select name="nama_barang" id="nama_barang" class="form-control">
+                    @foreach ($data_barangs as $barangs)
+              
+                        <option value="{{$barangs->nama_barang}}">{{$barangs->nama_barang}}</option>
+                   
+                      
+
+                    @endforeach
+
+                </select>
                 </div>
     
     

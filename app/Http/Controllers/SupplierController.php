@@ -47,10 +47,10 @@ class SupplierController extends Controller
 
         $supplier->tanggal_masuk = $request['tanggal_masuk'];
 
-        $supplier->nama_barang = $request['nama_barang'];
+        // $supplier->nama_barang = $request['nama_barang'];
 
         
-        $supplier->jumlah = $request['jumlah'];
+        // $supplier->jumlah = $request['jumlah'];
         $supplier->save();
 
         return redirect('/data_supplier')->with('sukses_tambah_supplier','Supplier Telah Ditambahkan');
@@ -98,8 +98,8 @@ class SupplierController extends Controller
 
             'nama_supplier'=>$request['nama_supplier'],
             'tanggal_masuk'=>$request['tanggal_masuk'],
-            'nama_barang'=>$request['nama_barang'],
-            'jumlah'=>$request['jumlah'],
+            // 'nama_barang'=>$request['nama_barang'],
+            // 'jumlah'=>$request['jumlah'],
             
         ]);
 

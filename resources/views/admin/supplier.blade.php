@@ -37,8 +37,8 @@
                                 <th>id</th>
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Masuk</th>
-                                <th>Nama Barang</th>
-                                <th>Jumlah</th>
+                                {{-- <th>Nama Barang</th> --}}
+                                {{-- <th>Jumlah</th> --}}
                                 <th>Aksi</th>
 
 
@@ -49,8 +49,8 @@
                                 <th>id</th>
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Masuk</th>
-                                <th>Nama Barang</th>
-                                <th>Jumlah</th>
+                                {{-- <th>Nama Barang</th> --}}
+                                {{-- <th>Jumlah</th> --}}
                                 <th>Aksi</th>
                         
                             </tr>
@@ -62,8 +62,8 @@
                                 <td>{{$item_supplier->id}}</td>
                                 <td>{{$item_supplier->nama_supplier}}</td>
                                 <td>{{$item_supplier->tanggal_masuk}}</td>
-                                <td>{{$item_supplier->nama_barang}}</td>
-                                <td>{{$item_supplier->jumlah}}</td>
+                                {{-- <td>{{$item_supplier->nama_barang}}</td> --}}
+                                {{-- <td>{{$item_supplier->jumlah}}</td> --}}
                                 <td>
                                     <a href="{{route('data_supplier.edit', $item_supplier->id)}}" class = "btn btn-success">Edit</a>
                                     <br><br>
