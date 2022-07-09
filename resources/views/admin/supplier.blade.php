@@ -67,7 +67,12 @@
                                 <td>
                                     <a href="{{route('data_supplier.edit', $item_supplier->id)}}" class = "btn btn-success">Edit</a>
                                     <br><br>
-                                    <button class = "btn btn-danger">Hapus</button>
+                                    <form action="{{route('data_supplier.destroy', $item_supplier->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class = "btn btn-danger" type = "submit">Hapus</button>
+                                    </form>
+                                 
                                 </td>
                      
                             </tr>

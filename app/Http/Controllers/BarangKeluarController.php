@@ -117,7 +117,7 @@ class BarangKeluarController extends Controller
      * @param  \App\Models\Barang_keluar  $barang_keluar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barang_keluar $barang_keluar, $id)
+    public function destroy($id)
     {
         //
 

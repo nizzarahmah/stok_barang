@@ -117,9 +117,14 @@ class DataBarangController extends Controller
      * @param  \App\Models\Data_barang  $data_barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Data_barang $data_barang)
+    public function destroy($id)
     {
         //
+
+        $data_barang = Data_barang::findOrFail($id);
+
+        $data_barang->delete();
+        return redirect('/data_barang')->with('sukses_hapus_data_barang', 'Sukses Hapus Data Barang');
 
 
         
