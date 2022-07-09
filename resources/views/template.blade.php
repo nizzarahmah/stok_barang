@@ -40,7 +40,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Toko Family Furniture<sup></sup></div>
+                <div class="sidebar-brand-text mx-3">Family Furniture<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -409,12 +409,12 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="modaltambahBarangLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="modaltambahBarangLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -427,6 +427,88 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    {{-- Modal Tambah Barang --}}
+
+<!-- Modal -->
+
+<form action="{{route('data_barang.store')}}" method = "POST">
+@csrf
+
+<div class="modal fade" id="modaltambahBarang" tabindex="-1" role="dialog" aria-labelledby="modaltambahBarangLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modaltambahBarangLabel">Tambah Data Barang</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+       
+
+
+            <div class="form-group">
+                <label for="nama_barang">Nama Barang</label>
+                <input id = "nama_barang" type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
+            </div>
+
+
+            <div class="form-group">
+                <label for="kode_barang">Kode Barang</label>
+                <input type="number" class="form-control" name = "kode_barang" placeholder="Kode Barang">
+            </div>
+
+
+            
+            <div class="form-group">
+                <label for="nama_supplier">Nama Supplier</label>
+                <input type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier">
+            </div>
+
+            <div class="form-group">
+                <label for="total_stock">Total Stock</label>
+                <input type="number" class="form-control" name = "total_stock" placeholder="Total Stock">
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('bootstrap/vendor/jquery/jquery.min.js')}}"></script>

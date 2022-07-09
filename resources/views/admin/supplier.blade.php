@@ -50,23 +50,20 @@
                             </tr>
                         </tfoot>
                         <tbody>
+
+                            @foreach ($supplier as $item_supplier)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                        
-                            </tr>
-           
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>System Architect</td>
+                                <td>{{$item_supplier->id}}</td>
+                                <td>{{$item_supplier->nama_supplier}}</td>
+                                <td>{{$item_supplier->tanggal_masuk}}</td>
+                                <td>{{$item_supplier->jumlah}}</td>
                                 <td>Edinburgh</td>
                      
                             </tr>
+                            @endforeach
+      
+
+
                         </tbody>
                     </table>
                 </div>

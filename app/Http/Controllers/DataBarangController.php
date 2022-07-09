@@ -15,6 +15,10 @@ class DataBarangController extends Controller
     public function index()
     {
         //
+
+        $data_barang = Data_barang::all();
+        return view('admin.data_barang', compact('data_barang'));
+
     }
 
     /**
@@ -25,6 +29,9 @@ class DataBarangController extends Controller
     public function create()
     {
         //
+
+        return view('admin.data_barang');
+
     }
 
     /**
@@ -36,6 +43,20 @@ class DataBarangController extends Controller
     public function store(Request $request)
     {
         //
+        $data_barang = new Data_barang;
+
+        $data_barang->nama_barang = $request['nama_barang'];
+
+        $data_barang->kode_barang = $request['kode_barang'];
+
+        $data_barang->nama_supplier = $request['nama_supplier'];
+
+        $data_barang->total_stock = $request['total_stock'];
+
+        $data_barang->save();
+
+        return redirect('/data_barang')->with('sukses_tambah_barang','Barang Telah Ditambahkan');
+
     }
 
     /**
@@ -47,6 +68,10 @@ class DataBarangController extends Controller
     public function show(Data_barang $data_barang)
     {
         //
+
+
+
+
     }
 
     /**
@@ -67,9 +92,23 @@ class DataBarangController extends Controller
      * @param  \App\Models\Data_barang  $data_barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Data_barang $data_barang)
+    public function update(Request $request, Data_barang $data_barang, $id)
     {
         //
+
+       Data_barang::where('id',$id)->update([
+
+        'nama_barang'=>$request['nama_barang'],
+        'kode_barang'=>$request['kode_barang'],
+        'nama_supplier'=>$request['nama_supplier'],
+        'total_stock'=>$request['total_stock'],
+
+
+       ]);
+
+       return redirect('/data_barang/'.$id)->with('success_edit_barang','Data Barang Berhasil Diedit');
+
+
     }
 
     /**
@@ -81,5 +120,10 @@ class DataBarangController extends Controller
     public function destroy(Data_barang $data_barang)
     {
         //
+
+
+        
+
+
     }
 }

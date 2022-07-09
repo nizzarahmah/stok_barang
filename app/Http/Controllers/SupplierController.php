@@ -15,6 +15,10 @@ class SupplierController extends Controller
     public function index()
     {
         //
+
+        $supplier = Supplier::all();
+        return view('admin.supplier', compact('supplier'));
+
     }
 
     /**
@@ -35,7 +39,25 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$
+
+        $supplier = new Supplier();
+
+        $supplier->nama_supplier = $request['nama_supplier'];
+
+        $supplier->tanggal_masuk = $request['tanggal_masuk'];
+
+        $supplier->nama_barang = $request['nama_barang'];
+
+        
+        $supplier->jumlah = $request['jumlah'];
+
+        $supplier->save();
+
+        return redirect('/data_supplier')->with('sukses_tambah_supplier','Supplier Telah Ditambahkan');
+
+
+
     }
 
     /**

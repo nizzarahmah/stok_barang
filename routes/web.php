@@ -32,12 +32,18 @@ Route::get('/', [\App\Http\Controllers\LandingController::class,'index'])->name(
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/data_barang', [App\Http\Controllers\LandingController::class, 'data_barang'])->name('data_barang');
+// Route::get('/data_barang', [App\Http\Controllers\LandingController::class, 'data_barang'])->name('data_barang');
 
 
-Route::get('/data_supplier', [App\Http\Controllers\LandingController::class, 'supplier'])->name('supplier');
+// Route::get('/data_supplier', [App\Http\Controllers\LandingController::class, 'supplier'])->name('supplier');
 
 Route::get('/barang_masuk', [App\Http\Controllers\LandingController::class, 'barang_masuk'])->name('barang_masuk');
 
 
 Route::get('/barang_keluar', [App\Http\Controllers\LandingController::class, 'barang_keluar'])->name('barang_keluar');
+
+
+
+Route::resource('/data_barang',\App\Http\Controllers\DataBarangController::class)->middleware('auth');
+
+Route::resource('/data_supplier',\App\Http\Controllers\SupplierController::class)->middleware('auth');
