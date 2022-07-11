@@ -82,7 +82,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\Barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang_masuk $barang_masuk, $id)
+    public function edit($id)
     {
         //
 
@@ -99,7 +99,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\Barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Barang_masuk $barang_masuk, $id)
+    public function update(Request $request, $id)
     {
         //
 
@@ -115,8 +115,9 @@ class BarangMasukController extends Controller
 
         ]);
 
-        return redirect('/barang_masuk/' . $id)->with('sukses_update_barang_masuk', 'Data telah diupdate');
+        // return redirect('/barang_masuk/' . $id)->with('sukses_update_barang_masuk', 'Data telah diupdate');
 
+        return redirect('/barang_masuk')->with('sukses_update_barang_masuk', 'Data telah diupdate');
 
 
     }

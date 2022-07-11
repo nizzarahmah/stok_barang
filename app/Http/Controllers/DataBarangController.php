@@ -80,9 +80,15 @@ class DataBarangController extends Controller
      * @param  \App\Models\Data_barang  $data_barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Data_barang $data_barang)
+    public function edit($id)
     {
         //
+
+        $data_barang = Data_barang::findOrFail($id);
+
+        return view('admin.data_barang_edit', compact('data_barang'));
+
+
     }
 
     /**
@@ -92,7 +98,7 @@ class DataBarangController extends Controller
      * @param  \App\Models\Data_barang  $data_barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Data_barang $data_barang, $id)
+    public function update(Request $request, $id)
     {
         //
 
@@ -106,7 +112,9 @@ class DataBarangController extends Controller
 
        ]);
 
-       return redirect('/data_barang/'.$id)->with('success_edit_barang','Data Barang Berhasil Diedit');
+    //    return redirect('/data_barang/'.$id)->with('success_edit_barang','Data Barang Berhasil Diedit');
+
+    return redirect('/data_barang')->with('success_edit_barang','Data Barang Berhasil Diedit');
 
 
     }

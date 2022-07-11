@@ -76,11 +76,11 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier, $id)
+    public function edit($id)
     {
         //
         $supplier = Supplier::findOrFail($id);
-        return view('');
+        return view('admin.supplier_edit', compact('supplier'));
     }
 
     /**
@@ -103,7 +103,8 @@ class SupplierController extends Controller
             
         ]);
 
-        return redirect('/data_supplier/' . $id)->with('sukses_update_supplier', ' Supplier Telah Diupdate');
+        // return redirect('/data_supplier/' . $id)->with('sukses_update_supplier', ' Supplier Telah Diupdate');
+        return redirect('/data_supplier')->with('sukses_update_supplier', ' Supplier Telah Diupdate');
     }
 
     /**
