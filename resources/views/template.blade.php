@@ -127,8 +127,8 @@
                     <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                            <a class="collapse-item" href="buttons.html">Pengguna</a>
-                            <a class="collapse-item" href="buttons.html">Kelompok Pengguna</a>
+                            <a class="collapse-item" href="{{url('/data_user')}}">Pengguna</a>
+                            <a class="collapse-item" href="{{url('/kelompok_user')}}">Kelompok Pengguna</a>
                         </div>
                     </div>
                 </li>
