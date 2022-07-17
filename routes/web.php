@@ -44,28 +44,32 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::resource('/data_barang',\App\Http\Controllers\DataBarangController::class)->middleware('is_superadmin');
+Route::resource('/data_barang',\App\Http\Controllers\DataBarangController::class)->middleware('auth');
 
 
-Route::resource('/data_supplier',\App\Http\Controllers\SupplierController::class)->middleware('is_superadmin');
+Route::resource('/data_supplier',\App\Http\Controllers\SupplierController::class)->middleware('auth');
 
 
-Route::resource('/barang_masuk',\App\Http\Controllers\BarangMasukController::class)->middleware('is_superadmin');
+Route::resource('/barang_masuk',\App\Http\Controllers\BarangMasukController::class)->middleware('auth');
 
 
-Route::resource('/barang_keluar',\App\Http\Controllers\BarangKeluarController::class)->middleware('is_superadmin');
+Route::resource('/barang_keluar',\App\Http\Controllers\BarangKeluarController::class)->middleware('auth');
 
-Route::get('/data_user', [App\Http\Controllers\LandingController::class, 'tampilkan_user'])->name('tampilkan_user')->middleware('is_superadmin');
 
-Route::get('/kelompok_user', [App\Http\Controllers\LandingController::class, 'kelompok_user'])->name('kelompok_user')->middleware('is_superadmin');
+
+Route::get('/data_user', [App\Http\Controllers\LandingController::class, 'tampilkan_user'])->name('tampilkan_user')->middleware('auth');
+
+Route::get('/kelompok_user', [App\Http\Controllers\LandingController::class, 'kelompok_user'])->name('kelompok_user')->middleware('auth');
 
 
 
 // BERBAGAI LAPORAN BARANG 
 
-Route::get('/laporan_stok_barang', [App\Http\Controllers\LandingController::class, 'laporan_stok_barang'])->name('laporan_stok_barang')->middleware('is_superadmin');
+Route::get('/laporan_stok_barang', [App\Http\Controllers\LandingController::class, 'laporan_stok_barang'])->name('laporan_stok_barang')->middleware('auth');
 
-Route::get('/laporan_barang_masuk', [App\Http\Controllers\LandingController::class, 'laporan_barang_masuk'])->name('laporan_barang_masuk')->middleware('is_superadmin');
+Route::get('/laporan_barang_masuk', [App\Http\Controllers\LandingController::class, 'laporan_barang_masuk'])->name('laporan_barang_masuk')->middleware('auth');
 
-Route::get('/laporan_barang_keluar', [App\Http\Controllers\LandingController::class, 'laporan_barang_keluar'])->name('laporan_barang_keluar')->middleware('is_superadmin');
+Route::get('/laporan_barang_keluar', [App\Http\Controllers\LandingController::class, 'laporan_barang_keluar'])->name('laporan_barang_keluar')->middleware('auth');
+
+Route::get('/laporan_stok_barang/pdf', [App\Http\Controllers\LandingController::class, 'cetak_barang_pdf'])->name('cetak_barang_pdf')->middleware('auth');
 

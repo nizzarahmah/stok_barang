@@ -21,7 +21,7 @@
         <h1 class="h3 mb-2 text-gray-800">Laporan Data Barang</h1>
 
 
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahBarang"><i
+        <a href="/laporan_stok_barang/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
             class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Data Barang</a>
     </div>
         {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.

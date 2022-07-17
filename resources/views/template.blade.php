@@ -22,6 +22,8 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('bootstrap/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+   <link rel="shortcut icon" href="{{url('/logo_sementara.png')}}" type="image/x-icon">
+
     @yield('style')
 
 </head>
@@ -106,9 +108,9 @@
                     <div id="collapseLaporan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                            <a class="collapse-item" href="buttons.html">Laporan Stok Barang</a>
-                            <a class="collapse-item" href="buttons.html">Laporan Barang Masuk</a>
-                            <a class="collapse-item" href="cards.html">Laporan Barang Keluar</a>
+                            <a class="collapse-item" href="{{url('/laporan_stok_barang')}}">Laporan Stok Barang</a>
+                            <a class="collapse-item" href="{{url('/laporan_barang_masuk')}}">Laporan Barang Masuk</a>
+                            <a class="collapse-item" href="{{url('/laporan_barang_keluar')}}">Laporan Barang Keluar</a>
                             <a class="collapse-item" href="cards.html">Laporan Akhir</a>
                         </div>
                     </div>

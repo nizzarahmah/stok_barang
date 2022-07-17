@@ -8,6 +8,8 @@ use App\Models\Data_barang;
 use App\Models\Supplier;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class LandingController extends Controller
 {
@@ -137,6 +139,26 @@ class LandingController extends Controller
     {
         # code...
 
+
+
+    }
+
+
+
+
+    //CETAK LAPORAN 
+
+    public function cetak_barang_pdf()
+    {
+        # code...
+
+        $barang = Data_barang::all();
+
+        $data_pdf =  PDF::loadview('admin.laporan.data_barang_pdf', compact('barang'));
+
+        // return $data_pdf->download('laporan_barang_pdf');
+
+        return $data_pdf->stream();
 
 
     }
