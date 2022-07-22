@@ -43,8 +43,13 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                {{-- <div class="sidebar-brand-icon rotate-n-15"> --}}
+                <div class="sidebar-brand-icon">
+                    
+                    {{-- <i class="fas fa-laugh-wink"></i> --}}
+
+                    <img src="{{asset('/logo_sementara_singkat_putih.png')}}" alt="" style = "width:70%; border-radius:100%">
+
                 </div>
                 <div class="sidebar-brand-text mx-3">Family Furniture<sup></sup></div>
             </a>
