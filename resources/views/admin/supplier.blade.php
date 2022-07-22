@@ -34,33 +34,34 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>id</th>
+                                <th>No</th>
                                 <th>Nama Supplier</th>
+                                <th>Alamat</th>
                                 <th>Tanggal Masuk</th>
-                                {{-- <th>Nama Barang</th> --}}
-                                {{-- <th>Jumlah</th> --}}
+                          
                                 <th>Aksi</th>
 
 
                             </tr>
                         </thead>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>id</th>
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Masuk</th>
-                                {{-- <th>Nama Barang</th> --}}
-                                {{-- <th>Jumlah</th> --}}
+                   
                                 <th>Aksi</th>
                         
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                         <tbody>
+                            <?php $no = 1; ?>
 
                             @foreach ($supplier as $item_supplier)
                             <tr>
-                                <td>{{$item_supplier->id}}</td>
+                                <td><?php echo $no++; ?></td>
                                 <td>{{$item_supplier->nama_supplier}}</td>
+                                <td>{{$item_supplier->alamat_supplier}}</td>
                                 <td>{{$item_supplier->tanggal_masuk}}</td>
                                 {{-- <td>{{$item_supplier->nama_barang}}</td> --}}
                                 {{-- <td>{{$item_supplier->jumlah}}</td> --}}

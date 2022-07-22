@@ -44,6 +44,15 @@
                         <input type="text" name="nama_supplier" id="nama_supplier" value = "{{$supplier->nama_supplier}}" class = "form-control">
                     </div>
 
+
+                    <div class="form-group">
+                        <label for="nama_supplier">Alamat Supplier</label>
+                        <input type="text" name="alamat_supplier" id="nama_supplier" value = "{{$supplier->alamat_supplier}}" class = "form-control">
+                    </div>
+
+                    
+
+
                     <div class="form-group">
                         <label for="tanggal_masuk">Tanggal Masuk</label>
                             <input type="date" name="tanggal_masuk" id="tanggal_masuk" value = "{{$supplier->tanggal_masuk}}" class = "form-control">

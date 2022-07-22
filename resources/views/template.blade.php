@@ -24,6 +24,18 @@
 
    <link rel="shortcut icon" href="{{url('/logo_sementara.png')}}" type="image/x-icon">
 
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+
+
+
+
+   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+   
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+   {{-- <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script> --}}
+
+
     @yield('style')
 
 </head>
@@ -111,7 +123,7 @@
                             <a class="collapse-item" href="{{url('/laporan_stok_barang')}}">Laporan Stok Barang</a>
                             <a class="collapse-item" href="{{url('/laporan_barang_masuk')}}">Laporan Barang Masuk</a>
                             <a class="collapse-item" href="{{url('/laporan_barang_keluar')}}">Laporan Barang Keluar</a>
-                            <a class="collapse-item" href="cards.html">Laporan Akhir</a>
+                            {{-- <a class="collapse-item" href="cards.html">Laporan Akhir</a> --}}
                         </div>
                     </div>
                 </li>
@@ -543,7 +555,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="modaltambahSupplierLabel">Tambah Data Barang</h5>
+              <h5 class="modal-title" id="modaltambahSupplierLabel">Tambah Data Supplier</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -558,12 +570,11 @@
                 </div>
     
     
-                {{-- <div class="form-group">
-                    <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" name = "nama_barang" placeholder="Nama Barang">
-                </div> --}}
-    
-    
+                <div class="form-group">
+                    <label for="alamat_supplier">Alamat Supplier</label>
+                    <input type="text" class="form-control" name = "alamat_supplier" placeholder="Alamat Supplier">
+                </div>
+        
                 
                 <div class="form-group">
                     <label for="tanggal_masuk">Tanggal Masuk</label>
@@ -781,6 +792,14 @@
 
 
     <!-- Bootstrap core JavaScript-->
+
+
+
+    @stack('script')
+
+
+
+
     <script src="{{asset('bootstrap/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 

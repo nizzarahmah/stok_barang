@@ -38,23 +38,26 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama User</th>
                                 <th>Status User</th> 
                                  <th>Email User</th>
                             </tr>
                         </thead>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>Nama User</th>
                                 <th>Status User</th> 
                                  <th>Email User</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                         <tbody>
+                            <?php $no = 1; ?>
 
                             @foreach ($users as $item_user)
                                 
                             <tr>
+                                <td><?php echo $no++; ?></td>
                                 <td>{{$item_user->name}}</td>
                                 <td>
                                     @if ($item_user->is_admin == 1)

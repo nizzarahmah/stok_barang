@@ -43,7 +43,7 @@
 
                             </tr>
                         </thead>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>Nama Barang</th>
                                 <th>Nama Supplier</th>
@@ -52,14 +52,40 @@
                                 <th>Aksi</th>
 
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                         <tbody>
                        
                         @foreach ($barang_masuk as $item_masuk)
                         <tr>
                             <td>{{$item_masuk->nama_barang}}</td>
                             <td>{{$item_masuk->nama_supplier}}</td>
-                            <td>{{$item_masuk->tanggal_masuk}}</td>
+                            
+                            <?php 
+
+                            $tanggal_masuk = $item_masuk->tanggal_masuk;
+                            
+                            $bulan = array (
+                                1 => 'Januari',
+                                'Februari',
+                                'Maret',
+                                'April',
+                                'Mei',
+                                'Juni',
+                                'Juli',
+                                'Agustus',
+                                'September',
+                                'Oktober',
+                                'November',
+                                'Desember'
+                            );
+
+	                        $pecahkan = explode('-', $tanggal_masuk);
+
+                            $masuk_asli = $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+                            
+                            ?>
+                            
+                            <td><?php echo $masuk_asli; ?></td>
                             <td>{{$item_masuk->jumlah_stock}}</td>
                             <td> 
                                 <a href="{{route('barang_masuk.edit', $item_masuk->id)}}" class="btn btn-success">Edit</a>

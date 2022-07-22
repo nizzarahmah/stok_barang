@@ -1,0 +1,11 @@
+1. Tabel footer dihapus kalau bisa 
+2. Relasi db barang masuk ke data barang dimanfaatkan untuk update jumlah stok, kalo nggak pake cara 2 function, atau pake cara edit stock
+3. Laporan Akhir Hapus 
+4. Tabel Data Supplier dll dibuat No. 
+5. Tambah Data User 
+6. hapus Register
+7. Dibuat Halaman Lupa Password 
+8. Tanggal Dibuat Tulisan Seperti Biasa
+9. Datatable segera ditambahkan
+
+

@@ -35,9 +35,10 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered display" id="data_barang" width="100%">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Kode Barang</th>
                                 <th>Nama Barang</th> 
                                  <th>Nama Supplier</th>
@@ -47,7 +48,7 @@
 
                             </tr>
                         </thead>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                <th>Kode Barang</th>
                                <th>Nama Barang</th> 
@@ -56,12 +57,14 @@
                                 <th>Aksi</th>
                         
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                         <tbody>
+                            <?php $no = 1; ?>
 
                             @foreach ($data_barang as $item_barang)
                                 
                             <tr>
+                                <td><?php echo $no++; ?></td>
                                 <td>{{$item_barang->nama_barang}}</td>
                                 <td>{{$item_barang->kode_barang}}</td>
                                 <td>{{$item_barang->nama_supplier}}</td>
@@ -93,7 +96,18 @@
 
 
 
-
-
     
 @endsection
+
+
+
+@push('script')
+    
+<script>
+    $(document).ready( function () {
+$('#data_barang').DataTable();
+} );
+</script>
+
+
+@endpush

@@ -36,6 +36,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama Barang</th>
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Keluar</th>
@@ -45,7 +46,7 @@
 
                             </tr>
                         </thead>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th>Nama Barang</th>
                                 <th>Nama Supplier</th>
@@ -54,11 +55,14 @@
                                 <th>Aksi</th>
                         
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                         <tbody>
-                            
+                            <?php
+                                $no = 1;
+                                ?>
                                 @foreach ($barang_keluar as $item_keluar)
                                 <tr>
+                                    <td><?php echo $no++; ?></td>
                                     <td>{{$item_keluar->nama_barang}}</td>
                                     <td>{{$item_keluar->nama_supplier}}</td>
                                     <td>{{$item_keluar->tanggal_keluar}}</td>
