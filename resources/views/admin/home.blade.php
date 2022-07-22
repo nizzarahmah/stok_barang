@@ -62,7 +62,14 @@ Beranda
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         Jumlah Barang Masuk</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">20 Buah</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <?php 
+                                            
+                                            $barang = DB::table('data_barangs')->count();
+                                            echo $barang . ' Buah';
+
+                                            ?>
+                                    </div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-sign-in-alt fa-2x text-gray-300"></i>
@@ -80,7 +87,14 @@ Beranda
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Jumlah Barang Keluar</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">13 Buah</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <?php 
+                                            
+                                        $barang_keluar = DB::table('barang_keluars')->count();
+                                        echo $barang_keluar . ' Buah';
+
+                                        ?>
+                                    </div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-sign-out-alt fa-2x text-gray-300"></i>
@@ -96,11 +110,18 @@ Beranda
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pengguna
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Supplier
                                     </div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">10 Orang</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                <?php 
+                                            
+                                                $supplier = DB::table('suppliers')->count();
+                                                echo $supplier ;
+        
+                                                ?>
+                                            </div>
                                         </div>
                                       
                                     </div>
@@ -121,7 +142,14 @@ Beranda
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Jumlah Kategori Barang</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18 Jenis</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                        <?php 
+                                            
+                                        $barang = DB::table('data_barangs')->count();
+                                        echo $barang . ' Buah';
+
+                                        ?>
+                                    </div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-list-alt fa-2x text-gray-300"></i>
