@@ -75,7 +75,14 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
                             <a class="collapse-item" href="{{url('/data_barang')}}">Data Barang</a>
-                            <a class="collapse-item" href="{{url('/data_supplier')}}">Supplier</a>
+                        
+
+                            @if (Auth::user()->is_superadmin==1)
+                            <a class="collapse-item" href="{{url('/data_supplier')}}">Supplier</a>   
+                            @else
+                                
+                            @endif
+              
                         </div>
                     </div>
                 </li>
@@ -122,7 +129,7 @@
 
 
 
-
+            @if (Auth::user()->is_superadmin==1)
                 <!-- Nav Item - Pages Collapse Menu -->
                  <li class="nav-item" id = "kelola_pengguna">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
@@ -139,7 +146,7 @@
                     </div>
                 </li>
 
-
+            @endif
 
                             <!-- Nav Item - Logout -->
             <li class="nav-item">
