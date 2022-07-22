@@ -165,9 +165,29 @@ class LandingController extends Controller
 
 
 
+    public function cetak_barang_masuk()
+    {
+        # code...
+    }
+
+
+
+    public function cetak_barang_keluar()
+    {
+        # code...
+    }
 
 
     
+
+
+
+
+
+
+
+
+
 
 
 

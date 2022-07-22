@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jul 2022 pada 09.43
+-- Waktu pembuatan: 22 Jul 2022 pada 14.13
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -131,7 +131,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2022_07_08_120234_add_nama_barang_to_data_barangs', 3),
 (11, '2022_07_08_122057_add_id_barang_to_barang_masuks', 4),
 (12, '2022_07_08_122122_add_id_barang_to_barang_keluars', 4),
-(13, '2022_07_15_023010_add_superadmin_to_users', 5);
+(13, '2022_07_15_023010_add_superadmin_to_users', 5),
+(14, '2022_07_22_104645_add_alamat_to_suppliers', 6);
 
 -- --------------------------------------------------------
 
@@ -172,6 +173,7 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `suppliers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_supplier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat_supplier` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal_masuk` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -181,9 +183,9 @@ CREATE TABLE `suppliers` (
 -- Dumping data untuk tabel `suppliers`
 --
 
-INSERT INTO `suppliers` (`id`, `nama_supplier`, `tanggal_masuk`, `created_at`, `updated_at`) VALUES
-(2, 'Pt. Omnimon', '1999-10-01', '2022-07-09 02:20:36', '2022-07-10 18:16:14'),
-(3, 'PT. Alphamon', '1999-08-01', '2022-07-09 02:55:59', '2022-07-09 02:55:59');
+INSERT INTO `suppliers` (`id`, `nama_supplier`, `alamat_supplier`, `tanggal_masuk`, `created_at`, `updated_at`) VALUES
+(2, 'Pt. Omnimon', NULL, '1999-10-01', '2022-07-09 02:20:36', '2022-07-10 18:16:14'),
+(3, 'PT. Alphamon', NULL, '1999-08-01', '2022-07-09 02:55:59', '2022-07-09 02:55:59');
 
 -- --------------------------------------------------------
 
@@ -209,7 +211,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `remember_token`, `created_at`, `updated_at`, `is_superadmin`) VALUES
-(1, 'Takuya Matsuda', 'fairuzfirjatullah3@gmail.com', NULL, '$2y$10$UFnz.gphyX3lvHRPQr7FPeK2QTGGOz.mqKAYG85DLWVcPrndd7Rwi', NULL, NULL, '2022-06-20 06:12:50', '2022-06-20 06:12:50', NULL),
+(1, 'Takuya Matsuda', 'fairuzfirjatullah3@gmail.com', NULL, '$2y$10$UFnz.gphyX3lvHRPQr7FPeK2QTGGOz.mqKAYG85DLWVcPrndd7Rwi', '1', NULL, '2022-06-20 06:12:50', '2022-06-20 06:12:50', NULL),
 (2, 'Matoi', 'seiryuu80@yahoo.com', NULL, '$2y$10$qyrz/Pv4UWTaJNHzo9ls9.vXmBCe8wAA5bV0fv90JO1YOdL9p6KFa', NULL, NULL, '2022-07-03 19:22:39', '2022-07-03 19:22:39', 1);
 
 --
@@ -309,7 +311,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
