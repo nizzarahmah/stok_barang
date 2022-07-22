@@ -67,11 +67,13 @@
                                         <a href="{{route('barang_keluar.edit', $item_keluar->id)}}" class="btn btn-success">Edit</a>
                                         <br><br>
 
+                                        @if (Auth::user()->is_superadmin==1)
                                         <form action="{{route('barang_keluar.destroy', $item_keluar->id)}}" method = "POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class = "btn btn-danger" type = "submit">Hapus</button>
                                         </form>
+                                        @endif
 
                                        
                                     </td>
