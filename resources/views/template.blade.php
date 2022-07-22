@@ -24,16 +24,8 @@
 
    <link rel="shortcut icon" href="{{url('/logo_sementara.png')}}" type="image/x-icon">
 
-   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
 
-
-
-
-   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-   
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-   {{-- <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script> --}}
+   <link href="{{asset('bootstrap/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 
     @yield('style')
@@ -811,6 +803,16 @@
 
     <!-- Page level plugins -->
     <script src="{{asset('bootstrap/vendor/chart.js/Chart.min.js')}}"></script>
+
+
+    
+    <!-- Page level plugins -->
+    <script src="{{asset('bootstrap/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('bootstrap/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{asset('bootstrap/js/demo/datatables-demo.js')}}"></script>
+
 
     <!-- Page level custom scripts -->
     <script src="{{asset('bootstrap/js/demo/chart-area-demo.js')}}"></script>
