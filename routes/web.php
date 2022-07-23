@@ -59,7 +59,10 @@ Route::resource('/barang_keluar',\App\Http\Controllers\BarangKeluarController::c
 
 Route::get('/data_user', [App\Http\Controllers\LandingController::class, 'tampilkan_user'])->name('tampilkan_user')->middleware('auth');
 
+Route::post('/data_user', [App\Http\Controllers\LandingController::class, 'TambahUser'])->name('TambahUser')->middleware('auth');
+
 Route::get('/kelompok_user', [App\Http\Controllers\LandingController::class, 'kelompok_user'])->name('kelompok_user')->middleware('auth');
+
 
 
 

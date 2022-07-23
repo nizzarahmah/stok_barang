@@ -21,7 +21,7 @@
         <h1 class="h3 mb-2 text-gray-800">Tabel Data User</h1>
 
 
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahBarang"><i
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahUser"><i
             class="fas fa-plus fa-sm text-white-50"></i> Tambah Data User</a>
     </div>
         {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.

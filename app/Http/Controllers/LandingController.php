@@ -86,6 +86,41 @@ class LandingController extends Controller
 
     }
 
+    public function TambahUser(Request $request)
+    {
+        # code...
+
+        $users = new User();
+
+        $users['name'] = $request->name;
+        $users['email'] = $request->email;
+        $users['password'] = bcrypt($request->password);
+
+        if ($request->status == 1) {
+            # code...
+            $users['is_superadmin'] = 1;
+        }
+
+        elseif($request->status == 1)
+        {
+            $users['is_admin'] = 1;
+
+        }
+
+        else{
+            $users['is_admin'] = 1;
+        }
+       
+
+
+        $users->save();
+
+        return redirect('/data_user')->with('suksestambahuser','User Telah Ditambahkan');
+
+    }
+
+
+
 
     public function kelompok_user()
     {
