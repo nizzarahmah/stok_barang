@@ -59,16 +59,30 @@
                             </tr>
                         </tfoot> --}}
                         <tbody>
-                            <?php $no = 1; ?>
+                            <?php $no = 1; 
+                            
+
+                            
+                            ?>
 
                             @foreach ($data_barang as $item_barang)
                                 
+                            <?php 
+                            
+                            $barang_masuks = DB::table('barang_masuks')->where('barang_id', $item_barang->id)->sum('jumlah_stock');
+
+                            $barang_keluars = DB::table('barang_keluars')->where('barang_id', $item_barang->id)->sum('jumlah');
+
+                            $total_stock = (int)$barang_masuks - (int)$barang_keluars;
+                            
+
+                            ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td>{{$item_barang->nama_barang}}</td>
                                 <td>{{$item_barang->kode_barang}}</td>
                                 <td>{{$item_barang->nama_supplier}}</td>
-                                <td>{{$item_barang->total_stock}}</td>
+                                <td><?php  echo $total_stock  ?></td>
                                 <td>
                                      <a class = "btn btn-success" href = "{{route('data_barang.edit', $item_barang->id)}}">Edit</a>
                                 <br> <br>

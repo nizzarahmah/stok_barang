@@ -50,11 +50,34 @@ $supplier = DB::table('suppliers')->get();
                         <input type="text" name="nama_barang" id="nama_barang" value = "{{$data_barang->nama_barang}}" class = "form-control">
                     </div>
 
+
+
+
+
                     <div class="form-group">
                         <label for="kode_barang">Kode Barang</label>
-                            <input type="text" name="kode_barang" id="kode_barang" value = "{{$data_barang->kode_barang}}" class = "form-control">
+                            {{-- <input type="text" name="kode_barang" id="kode_barang" value = "{{$data_barang->kode_barang}}" class = "form-control"> --}}
+
+
+                            
+
+                            <?php 
+                
+                            $kategoris = DB::table('kategoribarangs')->get();
+                            
+                            ?>
+            
+                            <select name="kode_barang" id="kode_barang" class = "form-control">
+                                <option value="{{$data_barang->kode_barang}}" selected disabled>{{$data_barang->kode_barang}}</option>
+                                @foreach ($kategoris as $items_kategori)
+                                    <option value="{{$items_kategori->kode_kategori}}">{{$items_kategori->kode_kategori}}</option>
+                                @endforeach
+                            </select>
+            
                        
                     </div>
+
+
 
                     <div class="form-group">
                         <label for="nama_supplier">Nama Supplier</label>
@@ -71,6 +94,11 @@ $supplier = DB::table('suppliers')->get();
 
                     </div>
 
+
+
+
+
+                    
 
 
                     <div class="form-group">
