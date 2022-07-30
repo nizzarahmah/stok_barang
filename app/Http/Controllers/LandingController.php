@@ -203,6 +203,15 @@ class LandingController extends Controller
     public function cetak_barang_masuk()
     {
         # code...
+
+        $barang_masuk = Barang_masuk::all();
+
+        $data_pdf =  PDF::loadview('admin.laporan.barang_masuk_pdf', compact('barang_masuk'));
+
+        // return $data_pdf->download('laporan_barang_pdf');
+
+        return $data_pdf->stream();
+
     }
 
 
@@ -210,6 +219,16 @@ class LandingController extends Controller
     public function cetak_barang_keluar()
     {
         # code...
+
+        $barang_keluar = Barang_keluar::all();
+
+        $data_pdf =  PDF::loadview('admin.laporan.barang_keluar_pdf', compact('barang_keluar'));
+
+        // return $data_pdf->download('laporan_barang_pdf');
+
+        return $data_pdf->stream();
+
+
     }
 
 

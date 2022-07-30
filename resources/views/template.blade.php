@@ -79,6 +79,8 @@
                     <div id="collapseDataMaster" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+                            <a class="collapse-item" href="{{url('/kategori_barang')}}">Kategori Barang</a>
+
                             <a class="collapse-item" href="{{url('/data_barang')}}">Data Barang</a>
                         
 
@@ -496,7 +498,23 @@
 
             <div class="form-group">
                 <label for="kode_barang">Kode Barang</label>
-                <input type="number" class="form-control" name = "kode_barang" placeholder="Kode Barang">
+
+                
+                <?php 
+                
+                $kategoris = DB::table('kategoribarangs')->get();
+                
+                ?>
+
+                <select name="kode_barang" id="kode_barang" class = "form-control">
+                    @foreach ($kategoris as $items_kategori)
+                        <option value="{{$items_kategori->kode_kategori}}">{{$items_kategori->kode_kategori}}</option>
+                    @endforeach
+                </select>
+
+
+                {{-- <input type="number" class="form-control" name = "kode_barang" placeholder="Kode Barang"> --}}
+          
             </div>
 
 
@@ -716,7 +734,7 @@
 <form action="{{route('barang_keluar.store')}}" method = "POST">
     @csrf
     
-    <div class="modal fade" id="modaltambahBarangKeluar" tabindex="-1" role="dialog" aria-labelledby="daltambahBarangKeluarLabel" aria-hidden="true">
+    <div class="modal fade" id="modaltambahBarangKeluar" tabindex="-1" role="dialog" aria-labelledby="modaltambahBarangKeluarLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -788,6 +806,80 @@
     
     
     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+{{-- Modal Tambah Barang Masuk --}}
+
+<!-- Modal -->
+
+<form action="{{route('kategori_barang.store')}}" method = "POST">
+    @csrf
+    
+    <div class="modal fade" id="modaltambahKategoriBarang" tabindex="-1" role="dialog" aria-labelledby="modaltambahKategoriBarangLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modaltambahKategoriBarangLabel">Tambah Data Kategori Barang</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+           
+    
+    
+                <div class="form-group">
+                    <label for="nama_kategori">Nama Kategori</label>
+                    {{-- <input id = "nama_supplier" type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier"> --}}
+                    <input type="text" class="form-control" name = "nama_kategori" placeholder="Nama Kategori">
+                </div>
+    
+
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

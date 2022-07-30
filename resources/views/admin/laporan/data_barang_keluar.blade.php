@@ -21,7 +21,7 @@
             <h1 class="h3 mb-2 text-gray-800">Tabel Data Barang Keluar</h1>
     
     
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahBarang"><i
+            <a href="laporan_barang_keluar/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
                 class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Keluar</a>
         </div>
 

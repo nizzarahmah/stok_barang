@@ -55,6 +55,8 @@ class DataBarangController extends Controller
 
         $data_barang->save();
 
+        
+
         return redirect('/data_barang')->with('sukses_tambah_barang','Barang Telah Ditambahkan');
 
     }

@@ -55,6 +55,8 @@ Route::resource('/barang_masuk',\App\Http\Controllers\BarangMasukController::cla
 
 Route::resource('/barang_keluar',\App\Http\Controllers\BarangKeluarController::class)->middleware('auth');
 
+Route::resource('/kategori_barang',\App\Http\Controllers\KategoribarangController::class)->middleware('auth');
+
 
 
 Route::get('/data_user', [App\Http\Controllers\LandingController::class, 'tampilkan_user'])->name('tampilkan_user')->middleware('auth');
@@ -75,4 +77,10 @@ Route::get('/laporan_barang_masuk', [App\Http\Controllers\LandingController::cla
 Route::get('/laporan_barang_keluar', [App\Http\Controllers\LandingController::class, 'laporan_barang_keluar'])->name('laporan_barang_keluar')->middleware('auth');
 
 Route::get('/laporan_stok_barang/pdf', [App\Http\Controllers\LandingController::class, 'cetak_barang_pdf'])->name('cetak_barang_pdf')->middleware('auth');
+
+
+Route::get('/laporan_barang_masuk/pdf', [App\Http\Controllers\LandingController::class, 'cetak_barang_masuk'])->name('cetak_barang_masuk')->middleware('auth');
+
+
+Route::get('/laporan_barang_keluar/pdf', [App\Http\Controllers\LandingController::class, 'cetak_barang_keluar'])->name('cetak_barang_keluar')->middleware('auth');
 
