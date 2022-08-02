@@ -86,7 +86,7 @@
                                     <td>{{$item_keluar->harga_satuan}}</td>
                                     <td>{{$item_keluar->size}}</td>
                                     <td>{{$item_keluar->satuan}}</td>
-                                    <td>{{$item_keluar->harga_beli}}</td>
+                                    <td><?php echo ($item_keluar->size)*($item_keluar->harga_satuan)  ?></td>
         
 
 

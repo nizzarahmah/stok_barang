@@ -32,6 +32,13 @@
                  <th>Total Stock</th>
 
 
+                 <th>Nama Merk</th>
+                 <th>Harga Satuan</th>
+                 <th>Ukuran</th>
+                 <th>Satuan</th>
+                 <th>Harga Total</th>
+
+
             </tr>
         </thead>
         <tbody>
@@ -49,6 +56,15 @@
                 <td>{{$item_barang->nama_supplier}}</td> 
                 <td>{{$item_barang->tanggal_masuk}}</td>
                 <td>{{$item_barang->jumlah_stock}}</td>
+
+
+                <td>{{$item_masuk->merk}}</td>
+                <td>{{$item_masuk->harga_satuan}}</td>
+                <td>{{$item_masuk->size}}</td>
+                <td>{{$item_masuk->satuan}}</td>
+                <td><?php echo ($item_masuk->size)*($item_masuk->harga_satuan)  ?></td>
+
+                
             </tr>
             @endforeach
   

@@ -101,11 +101,11 @@
                             <td>{{$item_masuk->harga_satuan}}</td>
                             <td>{{$item_masuk->size}}</td>
                             <td>{{$item_masuk->satuan}}</td>
-                            <td>{{$item_masuk->harga_beli}}</td>
+                            <td><?php echo ($item_masuk->size)*($item_masuk->harga_satuan)  ?></td>
 
 
 
-                            
+
 
                             <td>{{$item_masuk->jumlah_stock}}</td>
                             <td> 

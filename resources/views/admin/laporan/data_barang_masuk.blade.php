@@ -39,6 +39,14 @@
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Masuk</th>
                                 <th>Total Stock</th>
+
+                                
+                                <th>Nama Merk</th>
+                                <th>Harga Satuan</th>
+                                <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Harga Total</th>
+
                                 <th>Aksi</th>
 
                             </tr>
@@ -49,6 +57,13 @@
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Masuk</th>
                                 <th>Total Stock</th>
+
+                                <th>Nama Merk</th>
+                                <th>Harga Satuan</th>
+                                <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Harga Total</th>
+
                                 <th>Aksi</th>
 
                             </tr>
@@ -61,6 +76,18 @@
                             <td>{{$item_masuk->nama_supplier}}</td>
                             <td>{{$item_masuk->tanggal_masuk}}</td>
                             <td>{{$item_masuk->jumlah_stock}}</td>
+
+
+                            
+                            <td>{{$item_masuk->merk}}</td>
+                            <td>{{$item_masuk->harga_satuan}}</td>
+                            <td>{{$item_masuk->size}}</td>
+                            <td>{{$item_masuk->satuan}}</td>
+                            <td><?php echo ($item_masuk->size)*($item_masuk->harga_satuan)  ?></td>
+
+
+
+                            
                             <td> 
                                 <a href="{{route('barang_masuk.edit', $item_masuk->id)}}" class="btn btn-success">Edit</a>
                                 <br><br>

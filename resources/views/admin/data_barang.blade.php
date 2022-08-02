@@ -39,11 +39,11 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Barang</th>
                                 <th>Nama Barang</th> 
                                 <th>Nama Merk</th>
                                 <th>Harga Satuan</th>
                                 <th>Ukuran</th>
+                                <th>Satuan</th>
                                 <th>Harga Total</th>
                                  <th>Nama Supplier</th>
                                  <th>Total Stock</th>
@@ -87,9 +87,10 @@
                                 <td>{{$item_barang->merk}}</td>
                                 <td>{{$item_barang->harga_satuan}}</td>
                                 <td>{{$item_barang->size}}</td>
-                                <td>{{$item_barang->harga_beli}}</td>
-                                <td>{{$item_barang->kode_barang}}</td>
+                                <td>{{$item_barang->satuan}}</td>
+                                <td><?php echo ($item_barang->size)*($item_barang->harga_satuan)  ?></td>
                                 <td>{{$item_barang->nama_supplier}}</td>
+
                                 <td><?php  echo $total_stock  ?></td>
                                 <td>
                                      <a class = "btn btn-success" href = "{{route('data_barang.edit', $item_barang->id)}}">Edit</a>
