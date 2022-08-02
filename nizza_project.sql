@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jul 2022 pada 14.13
+-- Waktu pembuatan: 01 Agu 2022 pada 04.45
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -38,6 +38,13 @@ CREATE TABLE `barang_keluars` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `barang_keluars`
+--
+
+INSERT INTO `barang_keluars` (`id`, `nama_barang`, `nama_supplier`, `barang_id`, `tanggal_keluar`, `jumlah`, `created_at`, `updated_at`) VALUES
+(4, 'Kursi', 'Pt. Omnimon', NULL, '2022-05-01', 100, '2022-07-30 15:31:15', '2022-07-30 15:31:15');
+
 -- --------------------------------------------------------
 
 --
@@ -61,7 +68,8 @@ CREATE TABLE `barang_masuks` (
 --
 
 INSERT INTO `barang_masuks` (`id`, `id_supplier`, `nama_barang`, `barang_id`, `nama_supplier`, `tanggal_masuk`, `jumlah_stock`, `created_at`, `updated_at`) VALUES
-(3, NULL, 'Kursi', NULL, 'PT. Alphamon', '2005-08-01', 100, '2022-07-09 02:56:45', '2022-07-09 02:56:45');
+(3, NULL, 'Kursi', 4, 'PT. Alphamon', '2005-08-01', 100, '2022-07-09 02:56:45', '2022-07-09 02:56:45'),
+(4, NULL, 'Kursi', NULL, 'PT. Alphamon', '2022-01-01', 150, '2022-07-30 15:27:19', '2022-07-30 15:27:19');
 
 -- --------------------------------------------------------
 
@@ -71,6 +79,7 @@ INSERT INTO `barang_masuks` (`id`, `id_supplier`, `nama_barang`, `barang_id`, `n
 
 CREATE TABLE `data_barangs` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `id_kategori` bigint(20) UNSIGNED DEFAULT NULL,
   `nama_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kode_barang` int(11) NOT NULL,
   `nama_supplier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -83,8 +92,8 @@ CREATE TABLE `data_barangs` (
 -- Dumping data untuk tabel `data_barangs`
 --
 
-INSERT INTO `data_barangs` (`id`, `nama_barang`, `kode_barang`, `nama_supplier`, `total_stock`, `created_at`, `updated_at`) VALUES
-(4, 'Kursi', 123, 'Pt. Omnimon', 350, '2022-07-09 02:56:22', '2022-07-10 18:38:39');
+INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `total_stock`, `created_at`, `updated_at`) VALUES
+(4, NULL, 'Kursi', 123, 'Pt. Omnimon', 350, '2022-07-09 02:56:22', '2022-07-10 18:38:39');
 
 -- --------------------------------------------------------
 
@@ -101,6 +110,27 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kategoribarangs`
+--
+
+CREATE TABLE `kategoribarangs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama_kategori` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kode_kategori` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `kategoribarangs`
+--
+
+INSERT INTO `kategoribarangs` (`id`, `nama_kategori`, `kode_kategori`, `created_at`, `updated_at`) VALUES
+(3, 'PUBG MOBILE', 'PU - 3', '2022-07-30 07:39:00', '2022-07-30 07:39:00');
 
 -- --------------------------------------------------------
 
@@ -132,7 +162,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2022_07_08_122057_add_id_barang_to_barang_masuks', 4),
 (12, '2022_07_08_122122_add_id_barang_to_barang_keluars', 4),
 (13, '2022_07_15_023010_add_superadmin_to_users', 5),
-(14, '2022_07_22_104645_add_alamat_to_suppliers', 6);
+(14, '2022_07_22_104645_add_alamat_to_suppliers', 6),
+(15, '2022_07_30_015441_create_kategoribarangs_table', 7),
+(16, '2022_07_30_130801_add_fk_dua_to_data_barangs', 8),
+(17, '2022_07_30_223254_add_contact_to_suppliers', 9);
 
 -- --------------------------------------------------------
 
@@ -173,6 +206,7 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `suppliers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_supplier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `alamat_supplier` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal_masuk` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -183,9 +217,9 @@ CREATE TABLE `suppliers` (
 -- Dumping data untuk tabel `suppliers`
 --
 
-INSERT INTO `suppliers` (`id`, `nama_supplier`, `alamat_supplier`, `tanggal_masuk`, `created_at`, `updated_at`) VALUES
-(2, 'Pt. Omnimon', NULL, '1999-10-01', '2022-07-09 02:20:36', '2022-07-10 18:16:14'),
-(3, 'PT. Alphamon', NULL, '1999-08-01', '2022-07-09 02:55:59', '2022-07-09 02:55:59');
+INSERT INTO `suppliers` (`id`, `nama_supplier`, `contact`, `alamat_supplier`, `tanggal_masuk`, `created_at`, `updated_at`) VALUES
+(2, 'Pt. Omnimon', NULL, NULL, '1999-10-01', '2022-07-09 02:20:36', '2022-07-10 18:16:14'),
+(3, 'PT. Alphamon', NULL, NULL, '1999-08-01', '2022-07-09 02:55:59', '2022-07-09 02:55:59');
 
 -- --------------------------------------------------------
 
@@ -212,7 +246,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `is_admin`, `remember_token`, `created_at`, `updated_at`, `is_superadmin`) VALUES
 (1, 'Takuya Matsuda', 'fairuzfirjatullah3@gmail.com', NULL, '$2y$10$UFnz.gphyX3lvHRPQr7FPeK2QTGGOz.mqKAYG85DLWVcPrndd7Rwi', '1', NULL, '2022-06-20 06:12:50', '2022-06-20 06:12:50', NULL),
-(2, 'Matoi', 'seiryuu80@yahoo.com', NULL, '$2y$10$qyrz/Pv4UWTaJNHzo9ls9.vXmBCe8wAA5bV0fv90JO1YOdL9p6KFa', NULL, NULL, '2022-07-03 19:22:39', '2022-07-03 19:22:39', 1);
+(2, 'Matoi', 'seiryuu80@yahoo.com', NULL, '$2y$10$qyrz/Pv4UWTaJNHzo9ls9.vXmBCe8wAA5bV0fv90JO1YOdL9p6KFa', NULL, NULL, '2022-07-03 19:22:39', '2022-07-03 19:22:39', 1),
+(3, 'Rofi', 'kmtctasik@gmail.com', NULL, '$2y$10$j0AwhV6UAyBmiU804B9V/uxx8SakVaXtRkh74bkjMmmRcwCGJ2Dm6', NULL, NULL, '2022-07-22 17:38:57', '2022-07-22 17:38:57', NULL),
+(4, 'Epac Itah', 'dpt07111840000121@gmail.com', NULL, '$2y$10$aXDYE7EIMrdXd7WXXxgxpucnYptbtjsb8FqWGtsIf1IsEqaBFSjnC', NULL, NULL, '2022-07-22 17:48:21', '2022-07-22 17:48:21', 1);
 
 --
 -- Indexes for dumped tables
@@ -237,7 +273,8 @@ ALTER TABLE `barang_masuks`
 -- Indeks untuk tabel `data_barangs`
 --
 ALTER TABLE `data_barangs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `data_barangs_id_kategori_foreign` (`id_kategori`);
 
 --
 -- Indeks untuk tabel `failed_jobs`
@@ -245,6 +282,12 @@ ALTER TABLE `data_barangs`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indeks untuk tabel `kategoribarangs`
+--
+ALTER TABLE `kategoribarangs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -287,13 +330,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang_keluars`
 --
 ALTER TABLE `barang_keluars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang_masuks`
 --
 ALTER TABLE `barang_masuks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_barangs`
@@ -308,10 +351,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `kategoribarangs`
+--
+ALTER TABLE `kategoribarangs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -329,7 +378,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -347,6 +396,12 @@ ALTER TABLE `barang_keluars`
 ALTER TABLE `barang_masuks`
   ADD CONSTRAINT `barang_masuks_barang_id_foreign` FOREIGN KEY (`barang_id`) REFERENCES `data_barangs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `barang_masuks_id_supplier_foreign` FOREIGN KEY (`id_supplier`) REFERENCES `suppliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `data_barangs`
+--
+ALTER TABLE `data_barangs`
+  ADD CONSTRAINT `data_barangs_id_kategori_foreign` FOREIGN KEY (`id_kategori`) REFERENCES `kategoribarangs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -38,6 +38,13 @@
                                 <th>Nama Barang</th>
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Masuk</th>
+
+                                <th>Merk</th>
+                                <th>Harga Satuan</th>
+                                <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Harga Total</th>
+
                                 <th>Total Stock</th>
                                 <th>Aksi</th>
 
@@ -86,6 +93,20 @@
                             ?>
                             
                             <td><?php echo $masuk_asli; ?></td>
+
+
+
+
+                            <td>{{$item_masuk->merk}}</td>
+                            <td>{{$item_masuk->harga_satuan}}</td>
+                            <td>{{$item_masuk->size}}</td>
+                            <td>{{$item_masuk->satuan}}</td>
+                            <td>{{$item_masuk->harga_beli}}</td>
+
+
+
+                            
+
                             <td>{{$item_masuk->jumlah_stock}}</td>
                             <td> 
                                 <a href="{{route('barang_masuk.edit', $item_masuk->id)}}" class="btn btn-success">Edit</a>

@@ -107,6 +107,47 @@ $supplier = DB::table('suppliers')->get();
                        
                     </div>
 
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <label for="merk">Merk</label>
+                        <input type="text" name="merk" id="merk" value = "{{$data_barang->merk}}" class = "form-control">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="harga_satuan">Harga Satuan</label>
+                        <input type="number" name="harga_satuan" id="harga_satuan" value = "{{$data_barang->harga_satuan}}" class = "form-control">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="size">Ukuran</label>
+                        <input type="number" name="size" id="size" value = "{{$data_barang->size}}" class = "form-control">
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label for="satuan">Satuan</label>
+                        <input type="text" name="satuan" id="satuan" value = "{{$data_barang->satuan}}" class = "form-control">
+                    </div>
+
+
+
+
+                    
+
+
+
                     <center>
                         <button type = "submit" class = "btn btn-primary">Submit Hasil Edit</button>
                     </center>

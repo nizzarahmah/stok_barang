@@ -56,6 +56,15 @@ class BarangMasukController extends Controller
 
         $barang_masuk->jumlah_stock = $request['jumlah_stock'];
 
+        $barang_masuk->merk = $request['merk'];
+
+        $barang_masuk->harga_satuan = $request['harga_satuan'];
+
+        $barang_masuk->size = $request['size'];
+
+
+        $barang_masuk->harga_beli = ($barang_masuk->size)*($barang_masuk->harga_satuan); 
+
 
         $barang_masuk->save();
 

@@ -58,6 +58,9 @@ Route::resource('/barang_keluar',\App\Http\Controllers\BarangKeluarController::c
 Route::resource('/kategori_barang',\App\Http\Controllers\KategoribarangController::class)->middleware('auth');
 
 
+Route::resource('/data_merk',\App\Http\Controllers\MerkController::class)->middleware('auth');
+
+
 
 Route::get('/data_user', [App\Http\Controllers\LandingController::class, 'tampilkan_user'])->name('tampilkan_user')->middleware('auth');
 

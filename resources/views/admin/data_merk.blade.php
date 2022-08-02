@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Data Barang
+    Data Merk
 @endsection
 
 @section('content')
@@ -18,11 +18,11 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Tabel Data Barang</h1>
+        <h1 class="h3 mb-2 text-gray-800">Tabel Data Merk</h1>
 
 
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahBarang"><i
-            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Barang</a>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahMerk"><i
+            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Merk</a>
     </div>
         {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the <a target="_blank"
@@ -31,7 +31,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Merk</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -39,17 +39,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Barang</th>
-                                <th>Nama Barang</th> 
-                                <th>Nama Merk</th>
-                                <th>Harga Satuan</th>
-                                <th>Ukuran</th>
-                                <th>Harga Total</th>
-                                 <th>Nama Supplier</th>
-                                 <th>Total Stock</th>
-                                 <th>Aksi</th>
-
-
+                                <th>Nama Merk</th> 
+                                <th>Aksi</th> 
                             </tr>
                         </thead>
                         {{-- <tfoot>
@@ -69,35 +60,19 @@
                             
                             ?>
 
-                            @foreach ($data_barang as $item_barang)
-                                
-                            <?php 
-                            
-                            $barang_masuks = DB::table('barang_masuks')->where('nama_barang', $item_barang->nama_barang)->sum('jumlah_stock');
+                            @foreach ($merk as $item_merk)
 
-                            $barang_keluars = DB::table('barang_keluars')->where('nama_barang', $item_barang->nama_barang)->sum('jumlah');
-
-                            $total_stock = (int)$barang_masuks - (int)$barang_keluars;
-                            
-
-                            ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td>{{$item_barang->nama_barang}}</td>
-                                <td>{{$item_barang->merk}}</td>
-                                <td>{{$item_barang->harga_satuan}}</td>
-                                <td>{{$item_barang->size}}</td>
-                                <td>{{$item_barang->harga_beli}}</td>
-                                <td>{{$item_barang->kode_barang}}</td>
-                                <td>{{$item_barang->nama_supplier}}</td>
-                                <td><?php  echo $total_stock  ?></td>
+                                <td>{{$item_merk->nama_merk}}</td>
+   
                                 <td>
-                                     <a class = "btn btn-success" href = "{{route('data_barang.edit', $item_barang->id)}}">Edit</a>
+                                     <a class = "btn btn-success" href = "{{route('data_merk.edit', $item_merk->id)}}">Edit</a>
                                 <br> <br>
               
               
                                 @if (Auth::user()->is_superadmin==1)
-                                    <form action="{{route('data_barang.destroy', $item_barang->id)}}" method = "POST">
+                                    <form action="{{route('data_merk.destroy', $item_merk->id)}}" method = "POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class = "btn btn-danger" type = "submit" >Hapus</button> 
@@ -131,7 +106,7 @@
     
 <script>
     $(document).ready( function () {
-$('#data_barang').DataTable();
+$('#data_merk').DataTable();
 } );
 </script>
 

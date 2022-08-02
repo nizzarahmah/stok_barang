@@ -9,7 +9,7 @@
 
 <?php 
 
-$data_barang_keluar = DB::table('barang_keluars')->get();
+$barang_keluar_keluar = DB::table('barang_keluars')->get();
 
 $supplier = DB::table('suppliers')->get();
 
@@ -51,7 +51,7 @@ $supplier = DB::table('suppliers')->get();
                         {{-- <input type="text" name="nama_barang" id="nama_barang" value = "{{$barang_keluar->nama_barang}}" class = "form-control"> --}}
                     
                         <select name="nama_barang" id="nama_barang" class = "form-control">
-                            @foreach ($data_barang_keluar as $item_keluar)                     
+                            @foreach ($barang_keluar_keluar as $item_keluar)                     
                                 <option value="{{$item_keluar->nama_barang}}">{{$item_keluar->nama_barang}}</option>
                             @endforeach
                         </select>
@@ -92,6 +92,47 @@ $supplier = DB::table('suppliers')->get();
                             <input type="number" name="jumlah_stock" id="jumlah_stock" value = "{{$barang_keluar->jumlah_stock}}" class = "form-control">
                        
                     </div>
+
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <label for="merk">Merk</label>
+                        <input type="text" name="merk" id="merk" value = "{{$barang_keluar->merk}}" class = "form-control">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="harga_satuan">Harga Satuan</label>
+                        <input type="number" name="harga_satuan" id="harga_satuan" value = "{{$barang_keluar->harga_satuan}}" class = "form-control">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="size">Ukuran</label>
+                        <input type="number" name="size" id="size" value = "{{$barang_keluar->size}}" class = "form-control">
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label for="satuan">Satuan</label>
+                        <input type="text" name="satuan" id="satuan" value = "{{$barang_keluar->satuan}}" class = "form-control">
+                    </div>
+
+
+
+
+
+
+
 
                     <center>
                         <button type = "submit" class = "btn btn-primary">Submit Hasil Edit</button>

@@ -82,6 +82,8 @@
                             <a class="collapse-item" href="{{url('/kategori_barang')}}">Kategori Barang</a>
 
                             <a class="collapse-item" href="{{url('/data_barang')}}">Data Barang</a>
+
+                            <a class="collapse-item" href="{{url('/data_merk')}}">Data Merk</a>
                         
 
                             @if (Auth::user()->is_superadmin==1)
@@ -407,6 +409,13 @@
             </div>
             <!-- End of Main Content -->
 
+            <?php
+                
+$merks = DB::table('merks')->get();
+
+?>
+
+
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -522,6 +531,7 @@
             <div class="form-group">
                 <label for="nama_supplier">Nama Supplier</label>
                 {{-- <input type="text" class="form-control" name = "nama_supplier" placeholder="Nama Supplier"> --}}
+
             
                 <select name="nama_supplier" id="nama_supplier" class = "form-control">
                     @foreach ($data_suppliers as $supplier)
@@ -538,6 +548,34 @@
             </div>
 
 
+
+
+            <div class="form-group">
+                <label for="merk">Merk</label>
+                <select name="merk" id="merk" class = "form-control">
+                    @foreach ($merks as $symbol)
+                    <option value="{{$symbol->nama_merk}}">{{$symbol->nama_merk}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="harga_satuan">Harga Satuan</label>
+                <input type="number" class="form-control" name = "harga_satuan" placeholder="Harga Satuan">
+            </div>
+
+
+            <div class="form-group">
+                <label for="size">Ukuran</label>
+                <input type="number" class="form-control" name = "size" placeholder = "Ukuran">
+            </div>
+
+            <div class="form-group">
+                <label for="satuan">Satuan</label>
+                <input type="text" class="form-control" name = "satuan" placeholder = "Satuan">
+            </div>
 
 
 
@@ -697,6 +735,37 @@
                     <label for="jumlah_stock">Jumlah Stok</label>
                     <input type="number" class="form-control" name = "jumlah_stock" placeholder="Jumlah Stok">
                 </div>
+
+
+
+
+                
+            <div class="form-group">
+                <label for="merk">Merk</label>
+                <select name="merk" id="merk" class = "form-control">
+                    @foreach ($merks as $symbol)
+                    <option value="{{$symbol->nama_merk}}">{{$symbol->nama_merk}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="harga_satuan">Harga Satuan</label>
+                <input type="number" class="form-control" name = "harga_satuan" placeholder="Harga Satuan">
+            </div>
+
+
+            <div class="form-group">
+                <label for="size">Ukuran</label>
+                <input type="number" class="form-control" name = "size" placeholder = "Ukuran">
+            </div>
+
+            <div class="form-group">
+                <label for="satuan">Satuan</label>
+                <input type="text" class="form-control" name = "satuan" placeholder = "Satuan">
+            </div>
     
     
     
@@ -787,6 +856,38 @@
                     <label for="jumlah">Jumlah Stok</label>
                     <input type="number" class="form-control" name = "jumlah" placeholder="Jumlah Stok">
                 </div>
+
+
+
+
+
+                
+            <div class="form-group">
+                <label for="merk">Merk</label>
+                <select name="merk" id="merk" class = "form-control">
+                    @foreach ($merks as $symbol)
+                    <option value="{{$symbol->nama_merk}}">{{$symbol->nama_merk}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="harga_satuan">Harga Satuan</label>
+                <input type="number" class="form-control" name = "harga_satuan" placeholder="Harga Satuan">
+            </div>
+
+
+            <div class="form-group">
+                <label for="size">Ukuran</label>
+                <input type="number" class="form-control" name = "size" placeholder = "Ukuran">
+            </div>
+
+            <div class="form-group">
+                <label for="satuan">Satuan</label>
+                <input type="text" class="form-control" name = "satuan" placeholder = "Satuan">
+            </div>
     
     
     
@@ -806,6 +907,61 @@
     
     
     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    {{-- Modal Tambah Barang Masuk --}}
+
+<!-- Modal -->
+
+<form action="{{route('data_merk.store')}}" method = "POST">
+    @csrf
+    
+    <div class="modal fade" id="modaltambahMerk" tabindex="-1" role="dialog" aria-labelledby="modaltambahMerkLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modaltambahMerkLabel">Tambah Data Merk</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+           
+    
+
+            <div class="form-group">
+                <label for="nama_merk">Nama Merk</label>
+                <input type="text" class="form-control" name = "nama_merk" placeholder = "Nama Merk">
+            </div>
+
+
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    </form>
+
+
+
+
 
 
 

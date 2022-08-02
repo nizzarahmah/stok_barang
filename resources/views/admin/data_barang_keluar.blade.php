@@ -40,6 +40,17 @@
                                 <th>Nama Barang</th>
                                 <th>Nama Supplier</th>
                                 <th>Tanggal Keluar</th>
+
+
+
+                                <th>Merk</th>
+                                <th>Harga Satuan</th>
+                                <th>Ukuran</th>
+                                <th>Satuan</th>
+                                <th>Harga Total</th>
+
+
+
                                 <th>Jumlah</th>
                                 <th>Aksi</th>
 
@@ -66,6 +77,23 @@
                                     <td>{{$item_keluar->nama_barang}}</td>
                                     <td>{{$item_keluar->nama_supplier}}</td>
                                     <td>{{$item_keluar->tanggal_keluar}}</td>
+
+
+
+
+
+                                    <td>{{$item_keluar->merk}}</td>
+                                    <td>{{$item_keluar->harga_satuan}}</td>
+                                    <td>{{$item_keluar->size}}</td>
+                                    <td>{{$item_keluar->satuan}}</td>
+                                    <td>{{$item_keluar->harga_beli}}</td>
+        
+
+
+
+
+
+
                                     <td>{{$item_keluar->jumlah}}</td>
                                     <td> 
                                         <a href="{{route('barang_keluar.edit', $item_keluar->id)}}" class="btn btn-success">Edit</a>

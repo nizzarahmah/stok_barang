@@ -57,6 +57,19 @@ class BarangKeluarController extends Controller
 
         $barang_keluar->jumlah = $request['jumlah'];
 
+
+        
+        $barang_keluar->merk = $request['merk'];
+
+        $barang_keluar->harga_satuan = $request['harga_satuan'];
+
+        $barang_keluar->size = $request['size'];
+
+
+        $barang_keluar->harga_beli = ($barang_keluar->size)*($barang_keluar->harga_satuan); 
+
+
+
         $barang_keluar->save();
 
         return redirect('/barang_keluar')->with('sukses_tambah_barang_keluar', 'Sukses Tambah Barang Keluar');

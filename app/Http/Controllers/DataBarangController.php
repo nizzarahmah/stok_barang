@@ -53,6 +53,19 @@ class DataBarangController extends Controller
 
         $data_barang->total_stock = $request['total_stock'];
 
+
+
+        
+        $data_barang->merk = $request['merk'];
+
+        $data_barang->harga_satuan = $request['harga_satuan'];
+
+        $data_barang->size = $request['size'];
+
+
+        $data_barang->harga_beli = ($data_barang->size)*($data_barang->harga_satuan); 
+
+
         $data_barang->save();
 
         
