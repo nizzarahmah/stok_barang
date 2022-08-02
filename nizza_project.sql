@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Agu 2022 pada 04.45
+-- Waktu pembuatan: 02 Agu 2022 pada 06.08
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -31,9 +31,14 @@ CREATE TABLE `barang_keluars` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_supplier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_beli` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `barang_id` bigint(20) UNSIGNED DEFAULT NULL,
   `tanggal_keluar` date NOT NULL,
   `jumlah` int(11) DEFAULT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,8 +47,8 @@ CREATE TABLE `barang_keluars` (
 -- Dumping data untuk tabel `barang_keluars`
 --
 
-INSERT INTO `barang_keluars` (`id`, `nama_barang`, `nama_supplier`, `barang_id`, `tanggal_keluar`, `jumlah`, `created_at`, `updated_at`) VALUES
-(4, 'Kursi', 'Pt. Omnimon', NULL, '2022-05-01', 100, '2022-07-30 15:31:15', '2022-07-30 15:31:15');
+INSERT INTO `barang_keluars` (`id`, `nama_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `barang_id`, `tanggal_keluar`, `jumlah`, `size`, `created_at`, `updated_at`) VALUES
+(4, 'Kursi', 'Pt. Omnimon', NULL, NULL, NULL, NULL, NULL, '2022-05-01', 100, NULL, '2022-07-30 15:31:15', '2022-07-30 15:31:15');
 
 -- --------------------------------------------------------
 
@@ -57,8 +62,13 @@ CREATE TABLE `barang_masuks` (
   `nama_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `barang_id` bigint(20) UNSIGNED DEFAULT NULL,
   `nama_supplier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_beli` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal_masuk` date NOT NULL,
   `jumlah_stock` int(11) DEFAULT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -67,9 +77,9 @@ CREATE TABLE `barang_masuks` (
 -- Dumping data untuk tabel `barang_masuks`
 --
 
-INSERT INTO `barang_masuks` (`id`, `id_supplier`, `nama_barang`, `barang_id`, `nama_supplier`, `tanggal_masuk`, `jumlah_stock`, `created_at`, `updated_at`) VALUES
-(3, NULL, 'Kursi', 4, 'PT. Alphamon', '2005-08-01', 100, '2022-07-09 02:56:45', '2022-07-09 02:56:45'),
-(4, NULL, 'Kursi', NULL, 'PT. Alphamon', '2022-01-01', 150, '2022-07-30 15:27:19', '2022-07-30 15:27:19');
+INSERT INTO `barang_masuks` (`id`, `id_supplier`, `nama_barang`, `barang_id`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `tanggal_masuk`, `jumlah_stock`, `size`, `created_at`, `updated_at`) VALUES
+(3, NULL, 'Kursi', 4, 'PT. Alphamon', NULL, NULL, NULL, NULL, '2005-08-01', 100, NULL, '2022-07-09 02:56:45', '2022-07-09 02:56:45'),
+(4, NULL, 'Kursi', NULL, 'PT. Alphamon', NULL, NULL, NULL, NULL, '2022-01-01', 150, NULL, '2022-07-30 15:27:19', '2022-07-30 15:27:19');
 
 -- --------------------------------------------------------
 
@@ -81,9 +91,14 @@ CREATE TABLE `data_barangs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_kategori` bigint(20) UNSIGNED DEFAULT NULL,
   `nama_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kode_barang` int(11) NOT NULL,
+  `kode_barang` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama_supplier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_beli` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `total_stock` int(11) NOT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -92,8 +107,8 @@ CREATE TABLE `data_barangs` (
 -- Dumping data untuk tabel `data_barangs`
 --
 
-INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `total_stock`, `created_at`, `updated_at`) VALUES
-(4, NULL, 'Kursi', 123, 'Pt. Omnimon', 350, '2022-07-09 02:56:22', '2022-07-10 18:38:39');
+INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `total_stock`, `size`, `created_at`, `updated_at`) VALUES
+(4, NULL, 'Kursi', NULL, 'Pt. Omnimon', 'Hanif', '12000', '0', 'Meter', 350, '25', '2022-07-09 02:56:22', '2022-08-01 19:51:47');
 
 -- --------------------------------------------------------
 
@@ -135,6 +150,26 @@ INSERT INTO `kategoribarangs` (`id`, `nama_kategori`, `kode_kategori`, `created_
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `merks`
+--
+
+CREATE TABLE `merks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama_merk` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `merks`
+--
+
+INSERT INTO `merks` (`id`, `nama_merk`, `created_at`, `updated_at`) VALUES
+(1, 'Omegamon', '2022-08-01 19:21:39', '2022-08-01 19:27:54');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -165,7 +200,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2022_07_22_104645_add_alamat_to_suppliers', 6),
 (15, '2022_07_30_015441_create_kategoribarangs_table', 7),
 (16, '2022_07_30_130801_add_fk_dua_to_data_barangs', 8),
-(17, '2022_07_30_223254_add_contact_to_suppliers', 9);
+(17, '2022_07_30_223254_add_contact_to_suppliers', 9),
+(18, '2022_07_30_223723_add_sizecost_to_data_barangs', 10),
+(19, '2022_08_01_125238_create_merks_table', 10),
+(20, '2022_08_01_125815_add_yangbelum_to_data_barangs', 11),
+(21, '2022_08_01_132137_add_satuan_to_data_barangs', 12),
+(22, '2022_08_01_234845_add_yangbelum_to_barang_masuks', 12),
+(23, '2022_08_02_000553_add_yangbelum_to_barang_keluars', 13);
 
 -- --------------------------------------------------------
 
@@ -290,6 +331,12 @@ ALTER TABLE `kategoribarangs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `merks`
+--
+ALTER TABLE `merks`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
@@ -357,10 +404,16 @@ ALTER TABLE `kategoribarangs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `merks`
+--
+ALTER TABLE `merks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
