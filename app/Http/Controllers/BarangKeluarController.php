@@ -61,6 +61,8 @@ class BarangKeluarController extends Controller
         
         $barang_keluar->merk = $request['merk'];
 
+        $barang_keluar->satuan = $request['satuan'];
+
         $barang_keluar->harga_satuan = $request['harga_satuan'];
 
         $barang_keluar->size = $request['size'];
@@ -117,6 +119,16 @@ class BarangKeluarController extends Controller
         Barang_keluar::where('id', $id)->update([
 
             'nama_barang'=>$request['nama_barang'],
+
+
+
+            'merk'=>$request['merk'],
+            'size'=>$request['size'],
+            'harga_satuan'=>$request['harga_satuan'],
+            'satuan'=>$request['satuan'],
+            'harga_beli'=>($request['hargasatuan'])*($request['size']),
+
+
 
         ]);
 

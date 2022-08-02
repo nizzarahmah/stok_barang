@@ -58,6 +58,8 @@ class DataBarangController extends Controller
         
         $data_barang->merk = $request['merk'];
 
+        $data_barang->satuan = $request['satuan'];
+
         $data_barang->harga_satuan = $request['harga_satuan'];
 
         $data_barang->size = $request['size'];
@@ -123,6 +125,14 @@ class DataBarangController extends Controller
         'kode_barang'=>$request['kode_barang'],
         'nama_supplier'=>$request['nama_supplier'],
         'total_stock'=>$request['total_stock'],
+
+
+        'merk'=>$request['merk'],
+        'size'=>$request['size'],
+        'harga_satuan'=>$request['harga_satuan'],
+        'satuan'=>$request['satuan'],
+        'harga_beli'=>($request['hargasatuan'])*($request['size']),
+
 
 
        ]);

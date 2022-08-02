@@ -58,6 +58,8 @@ class BarangMasukController extends Controller
 
         $barang_masuk->merk = $request['merk'];
 
+        $barang_masuk->satuan = $request['satuan'];
+
         $barang_masuk->harga_satuan = $request['harga_satuan'];
 
         $barang_masuk->size = $request['size'];
@@ -120,6 +122,12 @@ class BarangMasukController extends Controller
             'nama_supplier'=>$request['nama_supplier'],
             'tanggal_masuk'=>$request['tanggal_masuk'],
             'jumlah_stock'=>$request['jumlah_stock'],
+
+            'merk'=>$request['merk'],
+            'size'=>$request['size'],
+            'harga_satuan'=>$request['harga_satuan'],
+            'satuan'=>$request['satuan'],
+            'harga_beli'=>($request['hargasatuan'])*($request['size']),
 
 
         ]);
