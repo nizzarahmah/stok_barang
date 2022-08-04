@@ -42,7 +42,6 @@
                                 <th>Merk</th>
                                 <th>Harga Satuan</th>
                                 <th>Ukuran</th>
-                                <th>Satuan</th>
                                 <th>Harga Total</th>
 
                                 <th>Total Stock</th>
@@ -69,6 +68,8 @@
                             
                             <?php 
 
+                            // $tanggal_masuk = $item_masuk->tanggal_masuk;
+
                             $tanggal_masuk = $item_masuk->tanggal_masuk;
                             
                             $bulan = array (
@@ -94,14 +95,22 @@
                             
                             <td><?php echo $masuk_asli; ?></td>
 
-
-
-
                             <td>{{$item_masuk->merk}}</td>
-                            <td>{{$item_masuk->harga_satuan}}</td>
+                            
+                            <td>
+                                <?php
+                                    $satuan = 'Rp. ' . number_format($item_masuk->harga_satuan,2,',','.');
+                                    echo $satuan;
+                               ?>
+                               </td>
                             <td>{{$item_masuk->size}}</td>
-                            <td>{{$item_masuk->satuan}}</td>
-                            <td><?php echo ($item_masuk->size)*($item_masuk->harga_satuan)  ?></td>
+
+                            <td><?php
+                             $total = ($item_masuk->jumlah_stock)*($item_masuk->harga_satuan); 
+                             $harga_barang_total = 'Rp. ' . number_format($total,2,',','.');
+                             
+                             echo $harga_barang_total;
+                              ?></td>
 
 
 

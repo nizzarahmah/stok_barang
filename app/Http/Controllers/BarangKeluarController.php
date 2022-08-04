@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang_keluar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class BarangKeluarController extends Controller
 {
@@ -58,18 +60,24 @@ class BarangKeluarController extends Controller
         $barang_keluar->jumlah = $request['jumlah'];
 
 
+
+
+        $barangs = DB::table('data_barangs')->where('nama_barang',$request['nama_barang'])->get();
+
+        foreach ($barangs as $things) {
+            # code...
+
+            $barang_keluar->merk = $things->merk;
+            $barang_keluar->satuan = $things->satuan;
+            $barang_keluar->harga_satuan = $things->harga_satuan;
+            $barang_keluar->size = $things->size;
+
+
+        }
+
         
-        $barang_keluar->merk = $request['merk'];
 
-        $barang_keluar->satuan = $request['satuan'];
-
-        $barang_keluar->harga_satuan = $request['harga_satuan'];
-
-        $barang_keluar->size = $request['size'];
-
-
-        $barang_keluar->harga_beli = ($barang_keluar->size)*($barang_keluar->harga_satuan); 
-
+        $barang_keluar->harga_beli = NULL; 
 
 
         $barang_keluar->save();

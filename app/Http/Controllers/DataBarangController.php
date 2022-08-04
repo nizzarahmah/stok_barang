@@ -65,7 +65,7 @@ class DataBarangController extends Controller
         $data_barang->size = $request['size'];
 
 
-        $data_barang->harga_beli = ($request['size']) + ($request['harga_satuan']); 
+        $data_barang->harga_beli = NULL; 
 
 
         $data_barang->save();

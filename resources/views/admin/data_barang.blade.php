@@ -41,12 +41,11 @@
                                 <th>No</th>
                                 <th>Nama Barang</th> 
                                 <th>Nama Merk</th>
-                                <th>Harga Satuan</th>
                                 <th>Ukuran</th>
-                                <th>Satuan</th>
+                                <th>Harga Satuan</th>
+                                <th>Total Stock</th>
                                 <th>Harga Total</th>
                                  <th>Nama Supplier</th>
-                                 <th>Total Stock</th>
                                  <th>Aksi</th>
 
 
@@ -80,18 +79,25 @@
                             $total_stock = (int)$barang_masuks - (int)$barang_keluars;
                             
 
+                            $konversi_rupiah_satuan = 'Rp. ' . number_format($item_barang->harga_satuan,2,',','.');
+
+                            $total_harga =  ($total_stock)*($item_barang->harga_satuan);
+
+                            $konversi_rupiah_total = 'Rp. ' . number_format($total_harga,2,',','.');
+
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td>{{$item_barang->nama_barang}}</td>
                                 <td>{{$item_barang->merk}}</td>
-                                <td>{{$item_barang->harga_satuan}}</td>
                                 <td>{{$item_barang->size}}</td>
-                                <td>{{$item_barang->satuan}}</td>
-                                <td><?php echo ($item_barang->size)*($item_barang->harga_satuan)  ?></td>
+                                <td><?php echo  $konversi_rupiah_satuan ; ?></td>
+                             
+                                <td><?php  echo $total_stock  ?></td>
+                                <td><?php echo $konversi_rupiah_total ?></td>
                                 <td>{{$item_barang->nama_supplier}}</td>
 
-                                <td><?php  echo $total_stock  ?></td>
+                          
                                 <td>
                                      <a class = "btn btn-success" href = "{{route('data_barang.edit', $item_barang->id)}}">Edit</a>
                                 <br> <br>

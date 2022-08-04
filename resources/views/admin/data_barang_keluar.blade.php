@@ -46,7 +46,6 @@
                                 <th>Merk</th>
                                 <th>Harga Satuan</th>
                                 <th>Ukuran</th>
-                                <th>Satuan</th>
                                 <th>Harga Total</th>
 
 
@@ -83,10 +82,28 @@
 
 
                                     <td>{{$item_keluar->merk}}</td>
-                                    <td>{{$item_keluar->harga_satuan}}</td>
+
+                                    <td>
+                                    
+                                         <?php
+                                            
+                                            $satuan = 'Rp. ' . number_format($item_keluar->harga_satuan,2,',','.');
+                                            echo $satuan;
+                                            ?>
+                                        {{-- {{$item_keluar->harga_satuan}} --}}
+                                    
+                                    </td>
                                     <td>{{$item_keluar->size}}</td>
-                                    <td>{{$item_keluar->satuan}}</td>
-                                    <td><?php echo ($item_keluar->size)*($item_keluar->harga_satuan)  ?></td>
+
+                                    <td>
+                                    <?php 
+
+                                    $total = ($item_keluar->jumlah)*($item_keluar->harga_satuan); 
+                                    $harga_barang_total = 'Rp. ' . number_format($total,2,',','.');
+                                    
+                                    echo $harga_barang_total;
+                                    ?></td>
+
         
 
 

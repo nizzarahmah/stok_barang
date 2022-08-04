@@ -79,7 +79,7 @@
                     <div id="collapseDataMaster" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                            <a class="collapse-item" href="{{url('/kategori_barang')}}">Kategori Barang</a>
+                            {{-- <a class="collapse-item" href="{{url('/kategori_barang')}}">Kategori Barang</a> --}}
 
                             <a class="collapse-item" href="{{url('/data_barang')}}">Data Barang</a>
 
@@ -506,7 +506,7 @@ $merks = DB::table('merks')->get();
 
 
             <div class="form-group">
-                <label for="kode_barang">Kode Barang</label>
+                <label for="kode_barang">Kategori Barang</label>
 
                 
                 <?php 
@@ -516,9 +516,18 @@ $merks = DB::table('merks')->get();
                 ?>
 
                 <select name="kode_barang" id="kode_barang" class = "form-control">
-                    @foreach ($kategoris as $items_kategori)
+                    {{-- @foreach ($kategoris as $items_kategori)
                         <option value="{{$items_kategori->kode_kategori}}">{{$items_kategori->kode_kategori}}</option>
-                    @endforeach
+                    @endforeach --}}
+
+                    <option value="" selected disabled>-- Silakan Pilih --</option>
+                    <option value="Kasur">Kasur</option>
+                    <option value="Jemuran">Jemuran</option>
+                    <option value="Lemari">Lemari</option>
+                    <option value="Rak Piring">Rak Piring</option>
+                    <option value="Barang Kecil">Barang Kecil</option>
+                    <option value="Lain-lain">Lain-lain</option>
+
                 </select>
 
 
@@ -552,11 +561,15 @@ $merks = DB::table('merks')->get();
 
             <div class="form-group">
                 <label for="merk">Merk</label>
-                <select name="merk" id="merk" class = "form-control">
+                {{-- <select name="merk" id="merk" class = "form-control">
                     @foreach ($merks as $symbol)
                     <option value="{{$symbol->nama_merk}}">{{$symbol->nama_merk}}</option>
                     @endforeach
-                </select>
+                </select> --}}
+
+                <input type="text" name="merk" id="merk" class = "form-control" placeholder="Merk">
+
+                
             </div>
 
 
@@ -569,13 +582,13 @@ $merks = DB::table('merks')->get();
 
             <div class="form-group">
                 <label for="size">Ukuran</label>
-                <input type="number" class="form-control" name = "size" placeholder = "Ukuran">
+                <input type="text" class="form-control" name = "size" placeholder = "Ukuran">
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="satuan">Satuan</label>
                 <input type="text" class="form-control" name = "satuan" placeholder = "Satuan">
-            </div>
+            </div> --}}
 
 
 
@@ -740,18 +753,18 @@ $merks = DB::table('merks')->get();
 
 
                 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="merk">Merk</label>
                 <select name="merk" id="merk" class = "form-control">
                     @foreach ($merks as $symbol)
                     <option value="{{$symbol->nama_merk}}">{{$symbol->nama_merk}}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
 
 
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="harga_satuan">Harga Satuan</label>
                 <input type="number" class="form-control" name = "harga_satuan" placeholder="Harga Satuan">
             </div>
@@ -759,14 +772,14 @@ $merks = DB::table('merks')->get();
 
             <div class="form-group">
                 <label for="size">Ukuran</label>
-                <input type="number" class="form-control" name = "size" placeholder = "Ukuran">
-            </div>
-
+                <input type="text" class="form-control" name = "size" placeholder = "Ukuran">
+            </div> --}}
+{{-- 
             <div class="form-group">
                 <label for="satuan">Satuan</label>
                 <input type="text" class="form-control" name = "satuan" placeholder = "Satuan">
             </div>
-    
+     --}}
     
     
     
@@ -860,7 +873,7 @@ $merks = DB::table('merks')->get();
 
 
 
-
+{{-- 
                 
             <div class="form-group">
                 <label for="merk">Merk</label>
@@ -869,9 +882,9 @@ $merks = DB::table('merks')->get();
                     <option value="{{$symbol->nama_merk}}">{{$symbol->nama_merk}}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
 
-
+{{-- 
 
             <div class="form-group">
                 <label for="harga_satuan">Harga Satuan</label>
@@ -881,14 +894,14 @@ $merks = DB::table('merks')->get();
 
             <div class="form-group">
                 <label for="size">Ukuran</label>
-                <input type="number" class="form-control" name = "size" placeholder = "Ukuran">
-            </div>
+                <input type="text" class="form-control" name = "size" placeholder = "Ukuran">
+            </div> --}}
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="satuan">Satuan</label>
                 <input type="text" class="form-control" name = "satuan" placeholder = "Satuan">
             </div>
-    
+     --}}
     
     
     

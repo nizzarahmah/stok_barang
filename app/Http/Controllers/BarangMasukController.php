@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang_masuk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BarangMasukController extends Controller
 {
@@ -56,16 +57,26 @@ class BarangMasukController extends Controller
 
         $barang_masuk->jumlah_stock = $request['jumlah_stock'];
 
-        $barang_masuk->merk = $request['merk'];
-
-        $barang_masuk->satuan = $request['satuan'];
-
-        $barang_masuk->harga_satuan = $request['harga_satuan'];
-
-        $barang_masuk->size = $request['size'];
 
 
-        $barang_masuk->harga_beli = ($barang_masuk->size)*($barang_masuk->harga_satuan); 
+
+
+
+          $barangs = DB::table('data_barangs')->where('nama_barang',$request['nama_barang'])->get();
+
+          foreach ($barangs as $masuks_item) {
+            # code...
+
+            $barang_masuk->merk = $masuks_item->merk;
+            $barang_masuk->satuan = $masuks_item->satuan;
+            $barang_masuk->harga_satuan = $masuks_item->harga_satuan;
+            $barang_masuk->size = $masuks_item->size;
+
+
+          }
+
+
+        $barang_masuk->harga_beli = NULL; 
 
 
         $barang_masuk->save();
