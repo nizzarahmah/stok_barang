@@ -506,7 +506,7 @@ $merks = DB::table('merks')->get();
 
 
             <div class="form-group">
-                <label for="kode_barang">Kategori Barang</label>
+                <label for="nama_kategori">Kategori Barang</label>
 
                 
                 <?php 
@@ -515,7 +515,7 @@ $merks = DB::table('merks')->get();
                 
                 ?>
 
-                <select name="kode_barang" id="kode_barang" class = "form-control">
+                <select name="nama_kategori" id="nama_kategori" class = "form-control">
                     {{-- @foreach ($kategoris as $items_kategori)
                         <option value="{{$items_kategori->kode_kategori}}">{{$items_kategori->kode_kategori}}</option>
                     @endforeach --}}

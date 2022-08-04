@@ -47,7 +47,9 @@ class DataBarangController extends Controller
 
         $data_barang->nama_barang = $request['nama_barang'];
 
-        $data_barang->kode_barang = $request['kode_barang'];
+        $data_barang->nama_kategori = $request['nama_kategori'];
+
+        // $data_barang->kode_barang = $request['kode_barang'];
 
         $data_barang->nama_supplier = $request['nama_supplier'];
 
