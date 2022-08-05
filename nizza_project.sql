@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Agu 2022 pada 05.02
+-- Waktu pembuatan: 05 Agu 2022 pada 16.08
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -100,7 +100,6 @@ CREATE TABLE `data_barangs` (
   `harga_satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `harga_beli` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total_stock` int(11) NOT NULL,
   `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -111,13 +110,14 @@ CREATE TABLE `data_barangs` (
 -- Dumping data untuk tabel `data_barangs`
 --
 
-INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `total_stock`, `size`, `created_at`, `updated_at`, `nama_kategori`) VALUES
-(4, NULL, 'Kursi', NULL, 'Pt. Omnimon', 'Hanif', '12000', '0', 'Meter', 350, '25', '2022-07-09 02:56:22', '2022-08-01 19:51:47', NULL),
-(6, NULL, 'Rak Piring Longs', 'Rak Piring', 'PT. Alphamon', 'Ah Long', '25000', NULL, NULL, 250, '20', '2022-08-03 09:33:37', '2022-08-03 09:33:37', NULL),
-(7, NULL, 'Kasur Spring Bed', 'Kasur', 'Pt. Omnimon', 'Ada Band', '200000', NULL, NULL, 23, '100 meter kuadrat', '2022-08-03 16:48:21', '2022-08-03 16:48:21', NULL),
-(9, NULL, 'Payung Teduh', NULL, 'PT. Alphamon', 'Flash', '25000', NULL, NULL, 26, '23 cm', '2022-08-03 22:21:50', '2022-08-03 22:21:50', 'Jemuran'),
-(10, NULL, 'Kursi Biru', NULL, 'PT. Alphamon', 'Snopen', '25000', NULL, NULL, 230, 'XL', '2022-08-04 19:24:32', '2022-08-04 19:24:32', 'Lain-lain'),
-(11, NULL, 'Lemari Warrior', NULL, 'Pt. Omnimon', 'Snopen', '250000', NULL, NULL, 100, '1 meter kuadrat', '2022-08-04 19:34:56', '2022-08-04 19:34:56', 'Lemari');
+INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `size`, `created_at`, `updated_at`, `nama_kategori`) VALUES
+(4, NULL, 'Kursi', NULL, 'Pt. Omnimon', 'Hanif', '12000', '0', 'Meter', '25', '2022-07-09 02:56:22', '2022-08-01 19:51:47', NULL),
+(6, NULL, 'Rak Piring Longs', 'Rak Piring', 'PT. Alphamon', 'Ah Long', '25000', NULL, NULL, '20', '2022-08-03 09:33:37', '2022-08-03 09:33:37', NULL),
+(7, NULL, 'Kasur Spring Bed', 'Kasur', 'Pt. Omnimon', 'Ada Band', '200000', NULL, NULL, '100 meter kuadrat', '2022-08-03 16:48:21', '2022-08-03 16:48:21', NULL),
+(9, NULL, 'Payung Teduh', NULL, 'PT. Alphamon', 'Flash', '25000', NULL, NULL, '23 cm', '2022-08-03 22:21:50', '2022-08-03 22:21:50', 'Jemuran'),
+(10, NULL, 'Kursi Biru', NULL, 'PT. Alphamon', 'Snopen', '25000', NULL, NULL, 'XL', '2022-08-04 19:24:32', '2022-08-04 19:24:32', 'Lain-lain'),
+(11, NULL, 'Lemari Warrior', NULL, 'Pt. Omnimon', 'Snopen', '250000', NULL, NULL, '1 meter kuadrat', '2022-08-04 19:34:56', '2022-08-04 19:34:56', 'Lemari'),
+(12, NULL, 'Jemuran Plastik', NULL, 'Pt. Omnimon', 'Snopen', '200000', NULL, NULL, '23 x 23', '2022-08-05 07:01:18', '2022-08-05 07:01:18', 'Jemuran');
 
 -- --------------------------------------------------------
 
@@ -399,7 +399,7 @@ ALTER TABLE `barang_masuks`
 -- AUTO_INCREMENT untuk tabel `data_barangs`
 --
 ALTER TABLE `data_barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
