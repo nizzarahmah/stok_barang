@@ -551,10 +551,10 @@ $merks = DB::table('merks')->get();
             
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="total_stock">Total Stock</label>
                 <input type="number" class="form-control" name = "total_stock" placeholder="Total Stock">
-            </div>
+            </div> --}}
 
 
 

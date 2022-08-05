@@ -53,7 +53,9 @@ class DataBarangController extends Controller
 
         $data_barang->nama_supplier = $request['nama_supplier'];
 
-        $data_barang->total_stock = $request['total_stock'];
+        // $data_barang->total_stock = $request['total_stock'];
+
+        // $data_barang->total_stock = NULL;
 
 
 
@@ -126,7 +128,7 @@ class DataBarangController extends Controller
         'nama_barang'=>$request['nama_barang'],
         'kode_barang'=>$request['kode_barang'],
         'nama_supplier'=>$request['nama_supplier'],
-        'total_stock'=>$request['total_stock'],
+        // 'total_stock'=>$request['total_stock'],
 
 
         'merk'=>$request['merk'],
