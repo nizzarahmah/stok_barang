@@ -53,7 +53,7 @@
 
 
                       <li class="nav-item" role="presentation">
-                        <button class="nav-link border-white" id="pills-lain" data-toggle="pill" data-target="#pills-lain" type="button" role="tab" aria-controls="pills-lain" aria-selected="false">Barang Kecil</button>
+                        <button class="nav-link border-white" id="pills-lain-lain" data-toggle="pill" data-target="#pills-lain" type="button" role="tab" aria-controls="pills-lain" aria-selected="false">Lain - lain</button>
                       </li>
 
 
@@ -509,7 +509,7 @@
 
 
 
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="tab-pane fade" id="pills-barangkecil" role="tabpanel" aria-labelledby="pills-barangkecil">
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -619,7 +619,7 @@
 
 
 
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="tab-pane fade" id="pills-lain" role="tabpanel" aria-labelledby="pills-lain">
                        
 
                         <div class="card shadow mb-4">
@@ -687,7 +687,7 @@
                                                 <td>{{$item_barang_lain->nama_barang}}</td>
                                                 <td>{{$item_barang_lain->nama_kategori}}</td>
                                                 <td>{{$item_barang_lain->merk}}</td>
-                                                <td>{{$item_barang->size}}</td>
+                                                <td>{{$item_barang_lain->size}}</td>
                                                 <td><?php echo  $konversi_rupiah_satuan ; ?></td>
                                              
                                                 <td><?php  echo $total_stock  ?></td>
