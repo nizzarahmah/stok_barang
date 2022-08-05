@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Agu 2022 pada 06.08
+-- Waktu pembuatan: 05 Agu 2022 pada 05.02
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.22
 
@@ -48,7 +48,8 @@ CREATE TABLE `barang_keluars` (
 --
 
 INSERT INTO `barang_keluars` (`id`, `nama_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `barang_id`, `tanggal_keluar`, `jumlah`, `size`, `created_at`, `updated_at`) VALUES
-(4, 'Kursi', 'Pt. Omnimon', NULL, NULL, NULL, NULL, NULL, '2022-05-01', 100, NULL, '2022-07-30 15:31:15', '2022-07-30 15:31:15');
+(4, 'Kursi', 'Pt. Omnimon', NULL, '200000', NULL, '35', 4, '2022-05-01', 100, NULL, '2022-07-30 15:31:15', '2022-07-30 15:31:15'),
+(5, 'Rak Piring Longs', 'PT. Alphamon', 'Ah Long', '25000', NULL, NULL, NULL, '2022-05-20', 25, '20', '2022-08-03 21:12:34', '2022-08-03 21:12:34');
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE `barang_masuks` (
   `harga_satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `harga_beli` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `satuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tanggal_masuk` date NOT NULL,
+  `tanggal_masuk` date DEFAULT NULL,
   `jumlah_stock` int(11) DEFAULT NULL,
   `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -79,7 +80,9 @@ CREATE TABLE `barang_masuks` (
 
 INSERT INTO `barang_masuks` (`id`, `id_supplier`, `nama_barang`, `barang_id`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `tanggal_masuk`, `jumlah_stock`, `size`, `created_at`, `updated_at`) VALUES
 (3, NULL, 'Kursi', 4, 'PT. Alphamon', NULL, NULL, NULL, NULL, '2005-08-01', 100, NULL, '2022-07-09 02:56:45', '2022-07-09 02:56:45'),
-(4, NULL, 'Kursi', NULL, 'PT. Alphamon', NULL, NULL, NULL, NULL, '2022-01-01', 150, NULL, '2022-07-30 15:27:19', '2022-07-30 15:27:19');
+(5, NULL, 'Rak Piring Longs', NULL, 'Pt. Omnimon', 'Omegamon', '25000', NULL, NULL, '2022-05-05', 20, '25 Meter Kuadrat', '2022-08-03 09:36:11', '2022-08-03 09:36:11'),
+(6, NULL, 'Rak Piring Longs', NULL, 'PT. Alphamon', 'Omegamon', '25000', NULL, NULL, '2007-05-06', 24, 'XLL', '2022-08-03 18:14:00', '2022-08-03 18:14:00'),
+(7, NULL, 'Rak Piring Longs', NULL, 'Pt. Omnimon', 'Ah Long', '25000', NULL, NULL, '2022-03-25', 24, '20', '2022-08-03 20:58:57', '2022-08-03 20:58:57');
 
 -- --------------------------------------------------------
 
@@ -100,15 +103,21 @@ CREATE TABLE `data_barangs` (
   `total_stock` int(11) NOT NULL,
   `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nama_kategori` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `data_barangs`
 --
 
-INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `total_stock`, `size`, `created_at`, `updated_at`) VALUES
-(4, NULL, 'Kursi', NULL, 'Pt. Omnimon', 'Hanif', '12000', '0', 'Meter', 350, '25', '2022-07-09 02:56:22', '2022-08-01 19:51:47');
+INSERT INTO `data_barangs` (`id`, `id_kategori`, `nama_barang`, `kode_barang`, `nama_supplier`, `merk`, `harga_satuan`, `harga_beli`, `satuan`, `total_stock`, `size`, `created_at`, `updated_at`, `nama_kategori`) VALUES
+(4, NULL, 'Kursi', NULL, 'Pt. Omnimon', 'Hanif', '12000', '0', 'Meter', 350, '25', '2022-07-09 02:56:22', '2022-08-01 19:51:47', NULL),
+(6, NULL, 'Rak Piring Longs', 'Rak Piring', 'PT. Alphamon', 'Ah Long', '25000', NULL, NULL, 250, '20', '2022-08-03 09:33:37', '2022-08-03 09:33:37', NULL),
+(7, NULL, 'Kasur Spring Bed', 'Kasur', 'Pt. Omnimon', 'Ada Band', '200000', NULL, NULL, 23, '100 meter kuadrat', '2022-08-03 16:48:21', '2022-08-03 16:48:21', NULL),
+(9, NULL, 'Payung Teduh', NULL, 'PT. Alphamon', 'Flash', '25000', NULL, NULL, 26, '23 cm', '2022-08-03 22:21:50', '2022-08-03 22:21:50', 'Jemuran'),
+(10, NULL, 'Kursi Biru', NULL, 'PT. Alphamon', 'Snopen', '25000', NULL, NULL, 230, 'XL', '2022-08-04 19:24:32', '2022-08-04 19:24:32', 'Lain-lain'),
+(11, NULL, 'Lemari Warrior', NULL, 'Pt. Omnimon', 'Snopen', '250000', NULL, NULL, 100, '1 meter kuadrat', '2022-08-04 19:34:56', '2022-08-04 19:34:56', 'Lemari');
 
 -- --------------------------------------------------------
 
@@ -206,7 +215,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2022_08_01_125815_add_yangbelum_to_data_barangs', 11),
 (21, '2022_08_01_132137_add_satuan_to_data_barangs', 12),
 (22, '2022_08_01_234845_add_yangbelum_to_barang_masuks', 12),
-(23, '2022_08_02_000553_add_yangbelum_to_barang_keluars', 13);
+(23, '2022_08_02_000553_add_yangbelum_to_barang_keluars', 13),
+(24, '2022_08_04_044140_add_namakategori_to_data_barangs', 14);
 
 -- --------------------------------------------------------
 
@@ -377,19 +387,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang_keluars`
 --
 ALTER TABLE `barang_keluars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang_masuks`
 --
 ALTER TABLE `barang_masuks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_barangs`
 --
 ALTER TABLE `data_barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -413,7 +423,7 @@ ALTER TABLE `merks`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
