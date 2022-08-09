@@ -38,7 +38,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                     
+                                <th>Kategori Barang</th>
                                 <th>Nama Barang</th> 
                                  <th>Nama Supplier</th>
                                  <th>Total Stock</th>
@@ -46,7 +46,6 @@
                                  <th>Nama Merk</th>
                                 <th>Harga Satuan</th>
                                 <th>Ukuran</th>
-                                <th>Satuan</th>
                                 <th>Harga Total</th>
                                  
                                 <th>Aksi</th>
@@ -58,19 +57,51 @@
                         <tbody>
 
                             @foreach ($barang as $item_barang)
+
+
+                            <?php 
+                            
+                            $barang_masuks = DB::table('barang_masuks')->where('nama_barang', $item_barang->nama_barang)->sum('jumlah_stock');
+
+                            $barang_keluars = DB::table('barang_keluars')->where('nama_barang', $item_barang->nama_barang)->sum('jumlah');
+
+                            $total_stock = (int)$barang_masuks - (int)$barang_keluars;
+
+
+                            $konversi_rupiah_satuan = 'Rp. ' . number_format($item_barang->harga_satuan,2,',','.');
+
+                            $total_harga =  ($total_stock)*($item_barang->harga_satuan);
+
+                            $konversi_rupiah_total = 'Rp. ' . number_format($total_harga,2,',','.');
+
+                            ?>
+
+
+
                                 
                             <tr>
+                                <td>{{$item_barang->nama_kategori}}</td>
+                                <td>{{$item_barang->nama_barang}}</td> 
                                 <td>{{$item_barang->nama_barang}}</td>
                      
                                 <td>{{$item_barang->nama_supplier}}</td>
-                                <td>{{$item_barang->total_stock}}</td>
+                                <td><?php echo $total_stock; ?></td>
 
 
                                 <td>{{$item_barang->merk}}</td>
-                                <td>{{$item_barang->harga_satuan}}</td>
+                                <td><?php echo $konversi_rupiah_satuan; ?></td>
                                 <td>{{$item_barang->size}}</td>
-                                <td>{{$item_barang->satuan}}</td>
-                                <td><?php echo ($item_barang->size)*($item_barang->harga_satuan)  ?></td>
+                                <td>
+                                
+
+                                    <?php 
+                                        
+                                        echo $konversi_rupiah_total
+                                        
+                                        ?>
+                                
+
+                                </td>
 
 
 

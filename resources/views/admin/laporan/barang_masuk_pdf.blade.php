@@ -35,7 +35,6 @@
                  <th>Nama Merk</th>
                  <th>Harga Satuan</th>
                  <th>Ukuran</th>
-                 <th>Satuan</th>
                  <th>Harga Total</th>
 
 
@@ -49,6 +48,24 @@
                 ?>
 
             @foreach ($barang_masuk as $item_barang)
+
+            <?php 
+                            
+            $barang_masuks = DB::table('barang_masuks')->where('nama_barang', $item_barang->nama_barang)->sum('jumlah_stock');
+
+            $barang_keluars = DB::table('barang_keluars')->where('nama_barang', $item_barang->nama_barang)->sum('jumlah');
+
+            $total_stock = (int)$barang_masuks - (int)$barang_keluars;
+
+            $stock_masuk = (int) $barang_masuks;
+
+            $konversi_rupiah_satuan = 'Rp. ' . number_format($item_barang->harga_satuan,2,',','.');
+
+            $total_harga_masuk =  ($stock_masuk)*($item_barang->harga_satuan);
+
+            $konversi_rupiah_total_masuk = 'Rp. ' . number_format($total_harga_masuk,2,',','.');
+
+            ?>
                 
             <tr>
                 <td><?php echo $no++; ?></td>
@@ -61,8 +78,7 @@
                 <td>{{$item_barang->merk}}</td>
                 <td>{{$item_barang->harga_satuan}}</td>
                 <td>{{$item_barang->size}}</td>
-                <td>{{$item_barang->satuan}}</td>
-                <td><?php echo ($item_barang->size)*($item_barang->harga_satuan)  ?></td>
+                <td><?php echo $konversi_rupiah_total_masuk ; ?></td>
 
                 
             </tr>
