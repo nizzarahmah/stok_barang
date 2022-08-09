@@ -87,3 +87,5 @@ Route::get('/laporan_barang_masuk/pdf', [App\Http\Controllers\LandingController:
 
 Route::get('/laporan_barang_keluar/pdf', [App\Http\Controllers\LandingController::class, 'cetak_barang_keluar'])->name('cetak_barang_keluar')->middleware('auth');
 
+
+Route::get('/laporan_barang_masuk/filtered_masukan', [App\Http\Controllers\LandingController::class, 'filtered_masukan'])->name('filtered_masukan')->middleware('auth');

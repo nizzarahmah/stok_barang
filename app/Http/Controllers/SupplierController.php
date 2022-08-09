@@ -47,6 +47,8 @@ class SupplierController extends Controller
 
         $supplier->alamat_supplier = $request['alamat_supplier'];
 
+        $supplier->contact = $request['contact'];
+
         $supplier->tanggal_masuk = $request['tanggal_masuk'];
 
         // $supplier->nama_barang = $request['nama_barang'];
@@ -101,6 +103,7 @@ class SupplierController extends Controller
             'nama_supplier'=>$request['nama_supplier'],
             'tanggal_masuk'=>$request['tanggal_masuk'],
             'alamat_supplier'=>$request['alamat_supplier'],
+            'contact'=>$request['contact'],
             // 'jumlah'=>$request['jumlah'],
             
         ]);

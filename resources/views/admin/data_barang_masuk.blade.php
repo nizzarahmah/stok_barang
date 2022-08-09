@@ -32,7 +32,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="filter_1" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Nama Barang</th>
@@ -150,3 +150,102 @@
 
     
 @endsection
+
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function () { 
+
+
+
+
+
+    $("#filter_1").DataTable({
+		lengthMenu: [10, 50, 75, 100],
+		order: [[5, "asc"]],
+		rowGroup: {
+			dataSrc: 5,
+		},
+		dom: "<'d-flex justify-content-between'lf>trB<'d-flex justify-content-between'ip>",
+		buttons: [
+			{ extend: "copy", className: "btn btn-primary" },
+			{ extend: "csv", className: "btn btn-primary" },
+			{ extend: "excel", className: "btn btn-primary" },
+			{ extend: "pdf", className: "btn btn-primary" },
+			{ extend: "print", className: "btn btn-primary" },
+		],
+		initComplete: function () {
+			count = 0;
+			this.api()
+				.columns([0, 1, 2, 3, 4])
+				.every(function () {
+					var title = this.header();
+					//replace spaces with dashes
+					title = $(title).html().replace(/[\W]/g, "-");
+					var column = this;
+					var select = $(
+						'<select style="width: 130px" id="' +
+							title +
+							'" class="select2" ></select>'
+					)
+						.appendTo($(column.header()))
+						.on("change", function () {
+							//Get the "text" property from each selected data
+							//regex escape the value and store in array
+							var data = $.map($(this).select2("data"), function (value, key) {
+								return value.text
+									? "^" + $.fn.dataTable.util.escapeRegex(value.text) + "$"
+									: null;
+							});
+
+							//if no data selected use ""
+							if (data.length === 0) {
+								data = [""];
+							}
+
+							//join array into string with regex or (|)
+							var val = data.join("|");
+
+							//search for the option(s) selected
+							column.search(val ? val : "", true, false).draw();
+						});
+
+					column
+						.data()
+						.unique()
+						.sort()
+						.each(function (d, j) {
+							select.append("<option>" + d + "</option>");
+						});
+
+					//use column title as selector and placeholder
+					$("#" + title).select2({
+						multiple: true,
+						closeOnSelect: false,
+						placeholder: "Filter",
+					});
+
+					//initially clear select otherwise first option is selected
+					$(".select2").val(null).trigger("change");
+					$(".select2").click(function (e) {
+						e.stopPropagation();
+					});
+				});
+		},
+	});
+
+
+
+
+
+});
+
+
+ 
+</script>

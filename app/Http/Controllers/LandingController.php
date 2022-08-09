@@ -9,6 +9,8 @@ use App\Models\Supplier;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PDF;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
 
 
 class LandingController extends Controller
@@ -200,11 +202,20 @@ class LandingController extends Controller
 
 
 
-    public function cetak_barang_masuk()
+    public function cetak_barang_masuk(Request $request)
     {
         # code...
 
-        $barang_masuk = Barang_masuk::all();
+        // $barang_masuk = Barang_masuk::all();
+
+        $tanggal_awal = $request->get('tanggal_awal');
+        $tanggal_akhir = $request->get('tanggal_akhir');
+
+        // $tanggal_awal = Input::get('tanggal_awal');
+
+        // $barang_keluar = Barang_keluar::all();
+
+        $barang_masuk = Barang_masuk::whereBetween('tanggal_masuk',[$tanggal_awal,$tanggal_akhir])->get();
 
         $data_pdf =  PDF::loadview('admin.laporan.barang_masuk_pdf', compact('barang_masuk'));
 
@@ -220,13 +231,40 @@ class LandingController extends Controller
     {
         # code...
 
-        $barang_keluar = Barang_keluar::all();
+        $tanggal_awal = $_GET['tanggal_awal'];
+        $tanggal_akhir = $_GET['tanggal_akhir'];
+
+        // $barang_keluar = Barang_keluar::all();
+
+        $barang_keluar = Barang_keluar::whereBetween('tanggal_keluar',[$tanggal_awal,$tanggal_akhir])->get();
 
         $data_pdf =  PDF::loadview('admin.laporan.barang_keluar_pdf', compact('barang_keluar'));
 
         // return $data_pdf->download('laporan_barang_pdf');
 
         return $data_pdf->stream();
+
+
+    }
+
+
+    public function filtered_masukan(Request $request)
+    {
+        
+        # code...
+
+        $tanggal_awal = $request->get('tanggal_awal');
+
+        $tanggal_akhir = $request->get('tanggal_akhir');
+
+        $barang_masuk = Barang_masuk::whereBetween('tanggal_masuk',[$tanggal_awal,$tanggal_akhir])->get();
+
+
+        // $tanggal_masuk = $request->get('tanggal_masuk'); 
+
+        // $barang_masuk= DB::table('barang_masuks')->where('tanggal_masuk','like',"%". $tanggal_masuk."%")->get();
+
+        return view('admin.laporan.data_barang_masuk_filtered', ['barang_masuk'=>$barang_masuk]);
 
 
     }

@@ -37,6 +37,7 @@
                                 <th>No</th>
                                 <th>Nama Supplier</th>
                                 <th>Alamat</th>
+                                <th>Kontak</th>
                                 <th>Tanggal Masuk</th>
                           
                                 <th>Aksi</th>
@@ -62,6 +63,7 @@
                                 <td><?php echo $no++; ?></td>
                                 <td>{{$item_supplier->nama_supplier}}</td>
                                 <td>{{$item_supplier->alamat_supplier}}</td>
+                                <td>{{$item_supplier->contact}}</td>
                                 <td>{{$item_supplier->tanggal_masuk}}</td>
                                 {{-- <td>{{$item_supplier->nama_barang}}</td> --}}
                                 {{-- <td>{{$item_supplier->jumlah}}</td> --}}

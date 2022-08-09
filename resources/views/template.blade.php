@@ -647,6 +647,11 @@ $merks = DB::table('merks')->get();
                     <label for="alamat_supplier">Alamat Supplier</label>
                     <input type="text" class="form-control" name = "alamat_supplier" placeholder="Alamat Supplier">
                 </div>
+
+                <div class="form-group">
+                    <label for="contact">Kontak</label>
+                    <input type="text" class="form-control" name = "contact" placeholder="Kontak">
+                </div>
         
                 
                 <div class="form-group">

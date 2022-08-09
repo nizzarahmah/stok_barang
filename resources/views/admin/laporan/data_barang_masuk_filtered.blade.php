@@ -21,14 +21,19 @@
             <h1 class="h3 mb-2 text-gray-800">Tabel Data Barang Masuk</h1>
     
     
+            {{-- <a href="/laporan_barang_masuk/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
+                class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</a> --}}
 
-            <a href="/laporan_barang_masuk/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
-                class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</a>
-
-
+                <form action="/laporan_barang_masuk/pdf" method = "GET">
+                    <input type="hidden" name="tanggal_awal" value="<?php echo $_GET['tanggal_awal'] ?>">
+                    <input type="hidden" name="tanggal_akhir" value="<?php echo $_GET['tanggal_akhir'] ?>">
     
-    
-    </div>
+                    <button type = "submit" class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</button>
+                </form>
+
+
+        </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -38,15 +43,15 @@
             <div class="card-body">
 
                 <div class="form-group">
-                <form action="/laporan_barang_masuk/filtered_masukan" method = "GET">
-                    <div class="row">
-                        <div class="col-3"> <label for="tanggal_awal">Tanggal Awal</label><input id = "tanggal_awal" type="date" name = "tanggal_awal" class = "form-control" placeholder = "Tanggal Awal"></div>
-                        <div class="col-3"><label for="tanggal_akhir">Akhir</label><input id = "tanggal_akhir" type="date" name = "tanggal_akhir" class = "form-control" placeholder = "Tanggal Akhir"></div>
-                        <div class="col-3"><label for="button_submit"></label> <br><button id = "button_submit" class = "btn btn-primary mt-2" type = "submit">Pilih Tanggal</button></div>
-                    </div>
+                    <form action="/laporan_barang_masuk/filtered_masukan" method = "GET">
+                        <div class="row">
+                            <div class="col-3"> <label for="tanggal_awal">Tanggal Awal</label><input id = "tanggal_awal" type="date" name = "tanggal_awal" class = "form-control" placeholder = "Tanggal Awal"></div>
+                            <div class="col-3"><label for="tanggal_akhir">Akhir</label><input id = "tanggal_akhir" type="date" name = "tanggal_akhir" class = "form-control" placeholder = "Tanggal Akhir"></div>
+                            <div class="col-3"><label for="button_submit"></label> <br><button id = "button_submit" class = "btn btn-primary mt-2" type = "submit">Pilih Tanggal</button></div>
+                        </div>
                     </form>
                 </div>
-
+  
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>

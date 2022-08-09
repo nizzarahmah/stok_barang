@@ -50,8 +50,10 @@
                         <input type="text" name="alamat_supplier" id="nama_supplier" value = "{{$supplier->alamat_supplier}}" class = "form-control">
                     </div>
 
-                    
-
+                    <div class="form-group">
+                        <label for="contact">Kontak</label>
+                        <input type="text" name="contact" id="contact" value = "{{$supplier->contact}}" class = "form-control">
+                    </div>
 
                     <div class="form-group">
                         <label for="tanggal_masuk">Tanggal Masuk</label>
