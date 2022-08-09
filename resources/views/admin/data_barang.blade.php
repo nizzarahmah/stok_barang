@@ -70,13 +70,13 @@
                             <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang Kasur</h6>
             </div>
             <div class="card-body">
 
 
                 <div class="table-responsive">
-                    <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered display" id="Kasur" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -181,13 +181,13 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang Jemuran</h6>
                             </div>
                             <div class="card-body">
                 
                 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered display" id="Jemuran" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -287,19 +287,19 @@
 
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                     
-                        
+
 
 
                     
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang Lemari</h6>
                             </div>
                             <div class="card-body">
                 
                 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered display" id="Lemari" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -408,13 +408,13 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang Rak Piring</h6>
                             </div>
                             <div class="card-body">
                 
                 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered display" id="RakPiring" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -516,13 +516,13 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang Kecil</h6>
                             </div>
                             <div class="card-body">
                 
                 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered display" id="BarangKecil" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -627,13 +627,13 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Tabel Data Barang Lain - lain</h6>
                             </div>
                             <div class="card-body">
                 
                 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered display" id="Lainlain" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -760,8 +760,10 @@
     
 <script>
     $(document).ready( function () {
-$('.table').DataTable();
+$('#Kasur').DataTable();
 } );
+
+
 </script>
 
 

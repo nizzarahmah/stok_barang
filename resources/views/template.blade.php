@@ -1166,6 +1166,15 @@ $merks = DB::table('merks')->get();
 
     @stack('script')
 
+    {{-- <script>
+        $(document).ready( function () {
+    $('.table').DataTable();
+    } );
+    
+    
+    </script>
+     --}}
+
 
 
 
