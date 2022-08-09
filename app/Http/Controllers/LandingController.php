@@ -272,6 +272,27 @@ class LandingController extends Controller
 
     
 
+    public function filtered_luaran(Request $request)
+    {
+        
+        # code...
+
+        $tanggal_awal = $request->get('tanggal_awal');
+
+        $tanggal_akhir = $request->get('tanggal_akhir');
+
+        $barang_keluar = Barang_keluar::whereBetween('tanggal_keluar',[$tanggal_awal,$tanggal_akhir])->get();
+
+
+        // $tanggal_masuk = $request->get('tanggal_masuk'); 
+
+        // $barang_masuk= DB::table('barang_masuks')->where('tanggal_masuk','like',"%". $tanggal_masuk."%")->get();
+
+        return view('admin.laporan.data_barang_keluar_filtered', ['barang_keluar'=>$barang_keluar]);
+
+
+    }
+
 
 
 

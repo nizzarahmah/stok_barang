@@ -89,3 +89,6 @@ Route::get('/laporan_barang_keluar/pdf', [App\Http\Controllers\LandingController
 
 
 Route::get('/laporan_barang_masuk/filtered_masukan', [App\Http\Controllers\LandingController::class, 'filtered_masukan'])->name('filtered_masukan')->middleware('auth');
+
+
+Route::get('/laporan_barang_keluar/filtered_luaran', [App\Http\Controllers\LandingController::class, 'filtered_luaran'])->name('filtered_luaran')->middleware('auth');

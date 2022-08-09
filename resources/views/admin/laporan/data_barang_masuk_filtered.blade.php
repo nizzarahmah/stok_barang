@@ -23,16 +23,14 @@
     
             {{-- <a href="/laporan_barang_masuk/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
                 class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</a> --}}
-
-                <form action="/laporan_barang_masuk/pdf" method = "GET">
-                    <input type="hidden" name="tanggal_awal" value="<?php echo $_GET['tanggal_awal'] ?>">
-                    <input type="hidden" name="tanggal_akhir" value="<?php echo $_GET['tanggal_akhir'] ?>">
-    
-                    <button type = "submit" class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                        class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</button>
-                </form>
-
-
+                    <form action="/laporan_barang_masuk/pdf" method = "GET">
+                        <input type="hidden" name="tanggal_awal" value="<?php echo $_GET['tanggal_awal'] ?>">
+                        <input type="hidden" name="tanggal_akhir" value="<?php echo $_GET['tanggal_akhir'] ?>">
+        
+                        <button type = "submit" class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</button>
+                    </form>
+ 
         </div>
 
         <!-- DataTales Example -->

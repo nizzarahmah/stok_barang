@@ -19,14 +19,19 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <!-- Page Heading -->
             <h1 class="h3 mb-2 text-gray-800">Tabel Data Barang Keluar</h1>
-
     
+            {{-- <a href="laporan_barang_keluar/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
+                class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Keluar</a> --}}
+
+                <form action="/laporan_barang_keluar/pdf" method = "GET">
+                    <input type="hidden" name="tanggal_awal" value="<?php echo $_GET['tanggal_awal'] ?>">
+                    <input type="hidden" name="tanggal_akhir" value="<?php echo $_GET['tanggal_akhir'] ?>">
     
-            <a href="laporan_barang_keluar/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
-                class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Keluar</a>
+                    <button type = "submit" class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Keluar</button>
+                </form>
 
 
-        
         </div>
 
 
@@ -36,7 +41,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Data Barang Keluar</h6>
             </div>
             <div class="card-body">
-
+                
                 <div class="form-group">
                     <form action="/laporan_barang_keluar/filtered_luaran" method = "GET">
                         <div class="row">
@@ -46,8 +51,7 @@
                         </div>
                         </form>
                     </div>
-
-
+                    
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
