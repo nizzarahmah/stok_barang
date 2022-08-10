@@ -112,7 +112,7 @@
 
             $konversi_rupiah_satuan = 'Rp. ' . number_format($item_masuk->harga_satuan,2,',','.');
 
-            $total_harga_masuk =  ($stock_masuk)*($item_masuk->harga_satuan);
+            $total_harga_masuk =  ($item_masuk->jumlah_stock)*($item_masuk->harga_satuan);
 
             $konversi_rupiah_total_masuk = 'Rp. ' . number_format($total_harga_masuk,2,',','.');
 

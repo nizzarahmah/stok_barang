@@ -66,6 +66,10 @@ Route::get('/data_user', [App\Http\Controllers\LandingController::class, 'tampil
 
 Route::post('/data_user', [App\Http\Controllers\LandingController::class, 'TambahUser'])->name('TambahUser')->middleware('auth');
 
+Route::delete('/data_user/{id}', [App\Http\Controllers\LandingController::class, 'HapusUser'])->name('HapusUser')->middleware('auth');
+
+
+
 Route::get('/kelompok_user', [App\Http\Controllers\LandingController::class, 'kelompok_user'])->name('kelompok_user')->middleware('auth');
 
 

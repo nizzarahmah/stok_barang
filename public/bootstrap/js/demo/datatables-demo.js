@@ -9,6 +9,8 @@ $(document).ready(function() {
   $('#BarangKecil').DataTable();
   $('#Lainlain').DataTable();
 
+  $('#barang_masuk').DataTable();
+
 
 
 

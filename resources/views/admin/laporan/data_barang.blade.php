@@ -82,7 +82,7 @@
                             <tr>
                                 <td>{{$item_barang->nama_kategori}}</td>
                                 <td>{{$item_barang->nama_barang}}</td> 
-                                <td>{{$item_barang->nama_barang}}</td>
+                                {{-- <td>{{$item_barang->nama_barang}}</td> --}}
                      
                                 <td>{{$item_barang->nama_supplier}}</td>
                                 <td><?php echo $total_stock; ?></td>

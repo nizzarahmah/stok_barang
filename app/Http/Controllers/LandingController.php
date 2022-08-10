@@ -123,6 +123,25 @@ class LandingController extends Controller
 
 
 
+    public function HapusUser($id)
+    {
+        # code...
+
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect('/data_user')->with('sukseshapususer', 'User Berhasil Dihapus');
+
+
+    }
+
+
+
+
+
+
+
 
     public function kelompok_user()
     {

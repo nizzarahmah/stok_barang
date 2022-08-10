@@ -42,6 +42,7 @@
                                 <th>Nama User</th>
                                 <th>Status User</th> 
                                  <th>Email User</th>
+                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         {{-- <tfoot>
@@ -69,6 +70,13 @@
                                 </td>
 
                                 <td>{{$item_user->email}}</td>
+                                <td> 
+                                    <form action="{{route('HapusUser', $item_user->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type = "submit" class = "btn btn-danger">Hapus</button>
+                                    </form>
+                                </td>
                                        
                             </tr>
                             @endforeach

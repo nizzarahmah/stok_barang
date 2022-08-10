@@ -90,7 +90,7 @@
                     
                                 $konversi_rupiah_satuan = 'Rp. ' . number_format($item_keluar->harga_satuan,2,',','.');
                     
-                                $total_harga_keluar =  ($stock_keluar)*($item_keluar->harga_satuan);
+                                $total_harga_keluar =  ($item_keluar->jumlah)*($item_keluar->harga_satuan);
                     
                                 $konversi_rupiah_total_keluar = 'Rp. ' . number_format($total_harga_keluar,2,',','.');
                     
