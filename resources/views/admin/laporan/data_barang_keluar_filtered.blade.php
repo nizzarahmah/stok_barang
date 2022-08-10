@@ -93,6 +93,31 @@
                                 $total_harga_keluar =  ($item_keluar->jumlah)*($item_keluar->harga_satuan);
                     
                                 $konversi_rupiah_total_keluar = 'Rp. ' . number_format($total_harga_keluar,2,',','.');
+
+
+                                $tanggal_keluar = $item_keluar->tanggal_keluar;
+                            
+                            $bulan = array (
+                                1 => 'Januari',
+                                'Februari',
+                                'Maret',
+                                'April',
+                                'Mei',
+                                'Juni',
+                                'Juli',
+                                'Agustus',
+                                'September',
+                                'Oktober',
+                                'November',
+                                'Desember'
+                            );
+
+	                        $pecahkan = explode('-', $tanggal_keluar);
+
+                            $keluar_asli = $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+
+
+
                     
                                 ?>
                     
@@ -100,7 +125,7 @@
                                 <tr>
                                     <td>{{$item_keluar->nama_barang}}</td>
                                     <td>{{$item_keluar->nama_supplier}}</td>
-                                    <td>{{$item_keluar->tanggal_keluar}}</td>
+                                   <td><?php echo $keluar_asli; ?></td>
                                     <td>{{$item_keluar->jumlah}}</td>
 
 

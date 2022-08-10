@@ -65,13 +65,37 @@
 
             $konversi_rupiah_total_masuk = 'Rp. ' . number_format($total_harga_masuk,2,',','.');
 
+
+
+
+            $tanggal_masuk = $item_barang->tanggal_masuk;
+                            
+                            $bulan = array (
+                                1 => 'Januari',
+                                'Februari',
+                                'Maret',
+                                'April',
+                                'Mei',
+                                'Juni',
+                                'Juli',
+                                'Agustus',
+                                'September',
+                                'Oktober',
+                                'November',
+                                'Desember'
+                            );
+
+	                        $pecahkan = explode('-', $tanggal_masuk);
+
+                            $masuk_asli = $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+
             ?>
                 
             <tr>
                 <td><?php echo $no++; ?></td>
                 <td>{{$item_barang->nama_barang}}</td>
                 <td>{{$item_barang->nama_supplier}}</td> 
-                <td>{{$item_barang->tanggal_masuk}}</td>
+                <td><?php echo $masuk_asli; ?></td>
                 <td>{{$item_barang->jumlah_stock}}</td>
 
 
