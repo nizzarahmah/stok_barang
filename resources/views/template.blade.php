@@ -83,7 +83,7 @@
 
                             <a class="collapse-item" href="{{url('/data_barang')}}">Data Barang</a>
 
-                            <a class="collapse-item" href="{{url('/data_merk')}}">Data Merk</a>
+                            {{-- <a class="collapse-item" href="{{url('/data_merk')}}">Data Merk</a> --}}
                         
 
                             @if (Auth::user()->is_superadmin==1)
@@ -1174,6 +1174,23 @@ $merks = DB::table('merks')->get();
     
     </script>
      --}}
+
+
+
+
+
+     
+    {{-- <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $('#modaltambahUser').modal('show');
+
+        });
+
+
+    </script> --}}
+
 
 
 
