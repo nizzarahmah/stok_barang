@@ -22,7 +22,7 @@
     
     
 
-            <a href="/laporan_barang_masuk/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
+            <a href="/laporan_barang_masuk_semua/pdf" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
                 class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan Barang Masuk</a>
 
 
