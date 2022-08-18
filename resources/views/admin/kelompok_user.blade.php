@@ -132,13 +132,13 @@
                                      <th>Email User</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            {{-- <tfoot>
                                 <tr>
                                     <th>Nama User</th>
                                     <th>Status User</th> 
                                      <th>Email User</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> --}}
                             <tbody>
 
                                 <?php 
